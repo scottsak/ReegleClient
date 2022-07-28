@@ -1,0 +1,459 @@
+body {
+  background-color: #0F4C75;
+  text-align: center;
+  /* font-family: 'League Spartan', sans-serif; */
+  font-family: 'Rokkitt', serif;
+  color: white;
+}
+
+button{
+  border: none;
+}
+
+.top-button-image{
+  width: 15px;
+}
+
+.top-button{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.right-top-div{
+  display: inline-block;
+}
+
+.game-title h1 {
+  font-family: 'Monoton', cursive;
+  color: #f0950f;
+  font-size: 45px;
+}
+
+.spacer{
+  height: 30px;
+}
+
+.btn-space {
+  width: 4px;
+  height: auto;
+  display: inline-block;
+}
+
+.header {
+  overflow: hidden;
+  position: relative;
+  /* background-color: #f1f1f1; */
+}
+
+.left{
+  /* float: left; */
+  text-align: center;
+  /* padding: 12px; */
+}
+
+.right {
+  /* float: right; */
+  top: 0px;
+  right: 0px;
+  position: absolute;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  /* line-height: 45px; */
+  border-radius: 4px;
+}
+
+.scott-logo{
+  width: 25px;
+}
+
+
+.info-button{
+  
+}
+/* .header{
+  display: grid;
+  align-content: space-evenly;
+  grid-template-columns: auto auto auto;
+} */
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+input {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  width: 300px;
+}
+
+.no-suggestions {
+  color: #999;
+  padding: 0.5rem;
+}
+
+.autocompleteWrapper{
+  width: 35%;
+  margin: 0px auto;
+}
+
+.suggestionsWrapper{
+  width: 300px;
+  margin: 0px auto;
+  /* position: absolute; */
+}
+
+.suggestions {
+  z-index: 100;
+  color: black;
+  background-color: white;
+  border: 1px solid #999;
+  border-top-width: 0;
+  list-style: none;
+  margin-top: 0;
+  max-height: 143px;
+  overflow-y: auto;
+  padding-left: 0;
+  width: 300px;
+  /* width: calc(300px + 1rem); */
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.suggestions li {
+  padding: 0.5rem;
+}
+
+.suggestion-active,
+.suggestions li:hover {
+  background-color: #EFEFEF;
+  color: black;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.suggestions li:not(:last-of-type) {
+  border-bottom: 1px solid #999;
+}
+
+.searchBar {
+  position: relative;
+}
+
+.lossSpace {
+  height: 30px;
+}
+
+
+.text-area {
+  padding-bottom: 30px;
+}
+
+.text-label {
+  display: block;
+}
+
+.lastRowTicket{
+  height: 20px;
+}
+
+.flip-button{
+  background-color: inherit;
+  border: none;
+}
+
+.flip-image{
+  width: 20px;
+}
+
+/* ------------------------------------------- */
+
+:root {
+  --concave-corners-background: rgba(0, 0, 0, 0.3);
+  --concave-corners-size: 2rem;
+}
+
+.concave-corners {
+  background-color: var(--concave-corners-background);
+
+  /* Used to position the corners */
+  position: relative;
+
+  /* Misc */
+  height: 100%;
+}
+
+.concave-corners__corner {
+  /* Absolute position */
+  position: absolute;
+
+  /* Size */
+  height: var(--concave-corners-size);
+  width: var(--concave-corners-size);
+
+  background: #0F4C75;
+}
+
+.concave-corners__corner--tl {
+  /* Position */
+  left: 0;
+  top: 0;
+
+  /* Border radius */
+  border-radius: 0 0 var(--concave-corners-size) 0;
+}
+
+.concave-corners__corner--tr {
+  /* Position */
+  right: 0;
+  top: 0;
+
+  /* Border radius */
+  border-radius: 0 0 0 var(--concave-corners-size);
+}
+
+.concave-corners__corner--bl {
+  /* Position */
+  bottom: 0;
+  left: 0;
+
+  /* Border radius */
+  border-radius: 0 var(--concave-corners-size) 0 0;
+}
+
+.concave-corners__corner--br {
+  /* Position */
+  bottom: 0;
+  right: 0;
+
+  /* Border radius */
+  border-radius: var(--concave-corners-size) 0 0 0;
+}
+
+/* ------------------------------------------- */
+
+.ticket {
+  position: relative;
+  background-color: #f0950f;
+  width: 45%;
+  height: 300px;
+  margin: auto;
+  font-family: 'Rokkitt', serif;
+}
+
+.hint1 {
+  /* filter: blur(10px); */
+}
+
+.table-ticket {
+  width: 100%;
+  align-items: center;
+  margin: auto;
+}
+
+.ticket-ends {
+  width: 8%;
+  padding: 20px 0px;
+}
+
+.backside-of-ticket{
+  float: left;
+  width: 50%;
+}
+
+.date {
+  /* writing-mode: tb-rl; */
+  transform: rotate(-180deg);
+  font-size: 25px;
+}
+
+.everythingelse {
+  width: 500px;
+  height: 281px;
+}
+
+.posterImg{
+  filter: blur(8px);
+}
+
+.middle-hint-container {
+  /* width: 100%; */
+  display: contents;
+}
+
+.middle-hints {
+  display: inline-block;
+  width: 50%;
+}
+
+.guess-box {
+  height: 40px;
+
+}
+
+.btn-divider {
+  width: 10px;
+  display: inline-block;
+}
+
+.hint-board {
+  /* width: 90%; */
+  background-color: white;
+}
+
+.hints-overall {
+  align-items: center;
+  margin: auto;
+  width: 80%;
+}
+
+#guess-title{
+  /* font-family: 'Bebas Neue', cursive; */
+/* font-family: 'Bungee Outline', cursive; */
+/* font-family: 'Bungee Shade', cursive; */
+/* font-family: 'Codystar', cursive; */
+/* font-family: 'League Spartan', sans-serif; */
+/* font-family: 'Monoton', cursive; */
+/* font-family: 'Montserrat Subrayada', sans-serif; */
+font-family: 'Rokkitt', serif;
+/* font-family: 'Stalinist One', cursive; */
+/* font-family: 'Train One', cursive; */
+}
+
+.guess-board {
+  margin: 0px auto;
+  width: 60%;
+  padding: 20px;
+  background-color: black;
+}
+
+.guess-heading {
+  color: #fae042;
+
+}
+
+.name-of-guess {
+  color: black;
+  margin: 0px;
+}
+
+.guess-list {
+  /* font-family: 'Bebas Neue', cursive; */
+  /* font-family: 'Bungee Outline', cursive; */
+  /* font-family: 'Bungee Shade', cursive; */
+  /* font-family: 'Codystar', cursive; */
+  /* font-family: 'League Spartan', sans-serif; */
+  /* font-family: 'Monoton', cursive; */
+  /* font-family: 'Montserrat Subrayada', sans-serif; */
+  font-family: 'Rokkitt', serif;
+  /* font-family: 'Train One', cursive; */
+  margin: 0px auto;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+}
+
+.guess-section{
+  border: 2px solid black;
+}
+
+.footer{
+  padding-bottom: 200px;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    font-size: 1.4rem;
+
+  }
+
+  .middle-btn-space{
+    display: none;
+  }
+
+  .game-title h1 {
+    font-size: 120px;
+  }
+
+  .right{
+    display: grid;
+  }
+
+  .top-button{
+    height: 50px;
+    width: 50px;
+  }
+
+  .guess-box {
+    height: 100px;
+    width: 90%;
+    font-size: 40px;
+  }
+
+  .guess-board{
+    width: 100%;
+  }
+
+  .name-of-guess{
+    font-size: 3rem;
+  }
+
+  .btn-divider {}
+
+  .text-label {
+    font-size: 40px;
+  }
+
+  .ticket {
+    width: 90%;
+    height: 500px;
+    margin: auto;
+  }
+
+  .hint-board {
+    /* width: 90%; */
+    background-color: red;
+  }
+
+  .hints-overall {
+    align-items: center;
+    width: 100%;
+  }
+
+  .guess-row {
+    background-color: aquamarine;
+  }
+
+
+
+
+}
