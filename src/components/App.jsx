@@ -96,7 +96,7 @@ function App() {
 
   // gets movie to start the game 
   function getInfoforMovie() {
-    Axios.get("https://reeglegame.herokuapp.com/get_movie_info", {
+    Axios.get("https://localhost:3000/get_movie_info", {
       params: {
         todaysDate: (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear()
       }
