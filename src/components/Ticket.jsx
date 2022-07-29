@@ -152,7 +152,10 @@ function Ticket(props) {
                                                     <Pixelify
                                                         src={props.movies.imageLink}
                                                         pixelSize={props.blurImage}
+                                                        width={500}
+                                                        height={281}
                                                     />
+                                                    {/* <img width={"300px"}src={props.movies.imageLink} alt="" /> */}
                                                 </div>
                                             </td>
                                         </tr>
