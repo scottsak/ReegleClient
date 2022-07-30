@@ -41,6 +41,7 @@ function App() {
     localStorage.setItem('day', todaysDate);
     localStorage.setItem('guesses', '[]');
     localStorage.setItem('guess', 1);
+    localStorage.setItem('win','waiting');
   }
 
   // gets info for stats 
