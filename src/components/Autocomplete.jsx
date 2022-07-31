@@ -98,7 +98,7 @@ const AutoComplete = ({ suggestions, date, guessUp, guessesAmount, setGuessList,
       setInput("");
       setActiveSuggestionIndex(0);
       setShowSuggestions(false);
-      compareAns(filteredSuggestions[activeSuggestionIndex].split(',')[0], filteredSuggestions[activeSuggestionIndex].substring(filteredSuggestions[activeSuggestionIndex].lastIndexOf(',')+1));
+      compareAns(filteredSuggestions[activeSuggestionIndex].substring(0, filteredSuggestions[activeSuggestionIndex].lastIndexOf(',')), filteredSuggestions[activeSuggestionIndex].substring(filteredSuggestions[activeSuggestionIndex].lastIndexOf(',')+1));
     }
     // User pressed the up arrow
     else if (e.keyCode === 38) {
