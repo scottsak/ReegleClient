@@ -28,7 +28,7 @@ function Ticket(props) {
             return (<h2>{props.movies.title}</h2>)
         }
 
-        else {
+        else if(props.guessesAmount > 5) {
             let t = "";
 
             for (let i = 0; i < props.movies.title.length; i++) {
@@ -39,6 +39,9 @@ function Ticket(props) {
                     t += props.movies.title.charAt(i);
                 }
             }
+            return <h2>{t}</h2>
+        }
+        else{
             return <h2>HINTS</h2>
         }
     }
@@ -98,19 +101,13 @@ function Ticket(props) {
                                                 {props.guessesAmount > 2 || props.win === 'won' ? <h4>Release Date: {props.movies.releaseDate}</h4> : <h4>Release Date: {MakeAnonymous(props.movies.releaseDate)}</h4>}
                                             </td>
                                         </tr>
-                                        <tr >
-                                            <td>
-                                                <div className="middle-hint-container">{props.guessesAmount > 3 || props.win === 'won' ? <h5 className="hint middle-hints">Runtime: {props.movies.runtime}</h5> : <h5 className="hint middle-hints">Runtime: {MakeAnonymous(props.movies.runtime)}</h5>}</div>
-                                                <div className="middle-hint-container">{props.guessesAmount > 3 || props.win === 'won' ? <h5 className="hint middle-hints">BoxOffice: {props.movies.boxOffice}</h5> : <h5 className="hint middle-hints">BoxOffice: {MakeAnonymous(props.movies.boxOffice)}</h5>}</div>
-                                            </td>
-                                        </tr>
                                         <tr>
                                             <td>
-                                                {props.guessesAmount > 4 || props.win === 'won' ? <h5 className="hint">Director: {props.movies.director}</h5> : <h5>Director: {MakeAnonymous(props.movies.director)}</h5>}
+                                                {props.guessesAmount > 3 || props.win === 'won' ? <h5 className="hint">Director: {props.movies.director}</h5> : <h5>Director: {MakeAnonymous(props.movies.director)}</h5>}
                                             </td>
                                         </tr>
                                         <tr><td>
-                                            {props.guessesAmount > 5 || props.win === 'won' ? <h5 className="hint">Actors: {props.movies.actors}</h5> : <h5>Actors: {MakeAnonymous(props.movies.actors)}</h5>}
+                                            {props.guessesAmount > 4 || props.win === 'won' ? <h5 className="hint">Actors: {props.movies.actors}</h5> : <h5>Actors: {MakeAnonymous(props.movies.actors)}</h5>}
                                         </td></tr>
 
                                     </tbody>
