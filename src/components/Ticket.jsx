@@ -88,7 +88,7 @@ function Ticket(props) {
 
                                         <tr>
                                             <td>
-                                                 <h4>Genres: {props.movies.genre}</h4> : <h4>Genres: {MakeAnonymous(props.movies.genre)}</h4>
+                                                 <h4>Genres: {props.movies.genre}</h4>
                                             </td>
                                         </tr>
                                         <tr >
