@@ -89,7 +89,7 @@ const AutoComplete = ({ suggestions, date, guessUp, guessesAmount, setGuessList,
     setInput("");
     setActiveSuggestionIndex(0);
     setShowSuggestions(false);
-    compareAns(e.target.innerText, key.split(',')[1]);
+    compareAns(e.target.innerText, key.substring(key.lastIndexOf(',')+1));
   };
 
   const onKeyDown = (e) => {
@@ -98,7 +98,7 @@ const AutoComplete = ({ suggestions, date, guessUp, guessesAmount, setGuessList,
       setInput("");
       setActiveSuggestionIndex(0);
       setShowSuggestions(false);
-      compareAns(filteredSuggestions[activeSuggestionIndex].split(',')[0], filteredSuggestions[activeSuggestionIndex].split(',')[1]);
+      compareAns(filteredSuggestions[activeSuggestionIndex].split(',')[0], filteredSuggestions[activeSuggestionIndex].substring(filteredSuggestions[activeSuggestionIndex].lastIndexOf(',')+1));
     }
     // User pressed the up arrow
     else if (e.keyCode === 38) {
@@ -131,7 +131,7 @@ const AutoComplete = ({ suggestions, date, guessUp, guessesAmount, setGuessList,
 
           return (
             <li className={className} key={suggestion} onClick={event => onClick(event, suggestion)}>
-              {suggestion.split(',')[0]}
+              {suggestion.substring(0,suggestion.lastIndexOf(','))}
             </li>
           );
         })}
