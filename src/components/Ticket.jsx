@@ -10,6 +10,7 @@ function Ticket(props) {
     const [flipped, setFlipped] = useState(true);
 
 
+
     useEffect(() => {
 
         if (props.guessesAmount >= 7 || props.win === 'won') {
@@ -28,7 +29,7 @@ function Ticket(props) {
             return (<h2>{props.movies.title}</h2>)
         }
 
-        else if(props.guessesAmount > 5) {
+        else if (props.guessesAmount > 5) {
             let t = "";
 
             for (let i = 0; i < props.movies.title.length; i++) {
@@ -41,7 +42,7 @@ function Ticket(props) {
             }
             return <h2>{t}</h2>
         }
-        else{
+        else {
             return <h2>HINTS</h2>
         }
     }
@@ -67,117 +68,115 @@ function Ticket(props) {
     const ticket = useRef(null);
 
     return (
-        <ReactCardFlip isFlipped={flipped} flipDirection="vertical">
-            <div>
-                <table ref={ticket} className="ticket">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div className="concave-corners__corner concave-corners__corner--tl"></div>
+        <div>
+            <ReactCardFlip isFlipped={flipped} flipDirection="vertical">
+                <div>
+                    <table ref={ticket} className="ticket">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div className="concave-corners__corner concave-corners__corner--tl"></div>
 
 
-                                <div className="concave-corners__corner concave-corners__corner--tr"></div></td>
-                        </tr>
-                        <tr>
-                            <td className="everythingelse">
-                                <table className="table-ticket">
-                                    <tbody>
-                                        <tr className="hint1 hint">
-                                            <td>{MovieTitleShow()}</td>
-                                        </tr>
+                                    <div className="concave-corners__corner concave-corners__corner--tr"></div></td>
+                            </tr>
+                            <tr>
+                                <td className="everythingelse">
+                                    <table className="table-ticket">
+                                        <tbody>
+                                            <tr className="hint1 hint">
+                                                <td>{MovieTitleShow()}</td>
+                                            </tr>
 
-                                        <tr>
-                                            <td>
-                                                 <h4>Genres: {props.movies.genre}</h4>
-                                            </td>
-                                        </tr>
-                                        <tr >
-                                            <td>
-                                                {props.guessesAmount > 1 || props.win === 'won' ? <h4>Release Date: {props.movies.releaseDate}</h4> : <h4>Release Date: {MakeAnonymous(props.movies.releaseDate)}</h4>}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                            {props.guessesAmount > 2 || props.win === 'won' ? <div className="middle-hint-container"><h5 className="hint middle-hints">Rated: {props.movies.rated}</h5></div> : <div className="middle-hint-container"><h5 className="hint middle-hints">Rated: {MakeAnonymous(props.movies.rated)}</h5></div>}
-                                            {props.guessesAmount > 2 || props.win === 'won' ? <div className="middle-hint-container"><h5 className="hint middle-hints">IMDB: {props.movies.imdbRating}</h5></div> : <div className="middle-hint-container"><h5 className="hint middle-hints">IMDB: {MakeAnonymous(props.movies.imdbRating)}</h5></div>}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                {props.guessesAmount > 3 || props.win === 'won' ? <h5 className="hint">Director: {props.movies.director}</h5> : <h5>Director: {MakeAnonymous(props.movies.director)}</h5>}
-                                            </td>
-                                        </tr>
-                                        <tr><td>
-                                            {props.guessesAmount > 4 || props.win === 'won' ? <h5 className="hint">Actors: {props.movies.actors}</h5> : <h5>Actors: {MakeAnonymous(props.movies.actors)}</h5>}
-                                        </td></tr>
-
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr className="lastRowTicket"><td>
-                                            <button className="flip-button" onClick={handleClick}><img className="flip-image" src={flip} alt="flip" /></button>
-                                        </td></tr>
-                        <tr>
-                            <td>
-
-                                <div className="concave-corners__corner concave-corners__corner--bl"></div>
-
-
-                                <div className="concave-corners__corner concave-corners__corner--br"></div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div>
-                <table className="ticket">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div className="concave-corners__corner concave-corners__corner--tl"></div>
-
-
-                                <div className="concave-corners__corner concave-corners__corner--tr"></div></td>
-                        </tr>
-                        <tr>
-                            <td className="everythingelse">
-                                <table className="table-ticket">
-                                    <tbody>
-                                        <tr className="hint1 hint">
-                                            <td>
-                                                <div>
-                                                    <Pixelify
-                                                        src={props.movies.imageLink}
-                                                        pixelSize={props.blurImage}
-                                                        width={500}
-                                                        height={281}
-                                                    />
-                                                    {/* <img width={"300px"}src={props.movies.imageLink} alt="" /> */}
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr className="lastRowTicket">
-                                            <td>
-                                                <button className="flip-button" onClick={handleClick}><img className="flip-image" src={flip} alt="flip" /></button>
+                                            <tr>
+                                                <td>
+                                                    <h4>Genres: {props.movies.genre}</h4>
+                                                </td>
+                                            </tr>
+                                            <tr >
+                                                <td>
+                                                    {props.guessesAmount > 1 || props.win === 'won' ? <h4>Release Date: {props.movies.releaseDate}</h4> : <h4>Release Date: {MakeAnonymous(props.movies.releaseDate)}</h4>}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    {props.guessesAmount > 2 || props.win === 'won' ? <div className="middle-hint-container"><h5 className="hint middle-hints">Rated: {props.movies.rated}</h5></div> : <div className="middle-hint-container"><h5 className="hint middle-hints">Rated: {MakeAnonymous(props.movies.rated)}</h5></div>}
+                                                    {props.guessesAmount > 2 || props.win === 'won' ? <div className="middle-hint-container"><h5 className="hint middle-hints">IMDB: {props.movies.imdbRating}</h5></div> : <div className="middle-hint-container"><h5 className="hint middle-hints">IMDB: {MakeAnonymous(props.movies.imdbRating)}</h5></div>}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    {props.guessesAmount > 3 || props.win === 'won' ? <h5 className="hint">Director: {props.movies.director}</h5> : <h5>Director: {MakeAnonymous(props.movies.director)}</h5>}
+                                                </td>
+                                            </tr>
+                                            <tr><td>
+                                                {props.guessesAmount > 4 || props.win === 'won' ? <h5 className="hint">Actors: {props.movies.actors}</h5> : <h5>Actors: {MakeAnonymous(props.movies.actors)}</h5>}
                                             </td></tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
 
-                                <div className="concave-corners__corner concave-corners__corner--bl"></div>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <div className="concave-corners__corner concave-corners__corner--bl"></div>
 
 
-                                <div className="concave-corners__corner concave-corners__corner--br"></div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                    <div className="concave-corners__corner concave-corners__corner--br"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <table className="ticket">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div className="concave-corners__corner concave-corners__corner--tl"></div>
+
+
+                                    <div className="concave-corners__corner concave-corners__corner--tr"></div></td>
+                            </tr>
+                            <tr>
+                                <td className="everythingelse">
+                                    <table className="table-ticket">
+                                        <tbody>
+                                            <tr className="hint1 hint">
+                                                <td>
+                                                    <div>
+                                                        <Pixelify
+                                                            src={props.movies.imageLink}
+                                                            pixelSize={props.blurImage}
+                                                            width={600}
+                                                            height={337}
+                                                        />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <div className="concave-corners__corner concave-corners__corner--bl"></div>
+
+
+                                    <div className="concave-corners__corner concave-corners__corner--br"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </ReactCardFlip>
+            <div className="lastRowTicket">
+                <button className="flip-button" onClick={handleClick}><img className="flip-image" src={flip} alt="flip" /></button>
             </div>
-        </ReactCardFlip>
+        </div>
+
     )
 }
 

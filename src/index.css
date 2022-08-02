@@ -184,6 +184,7 @@ input {
 
 .lastRowTicket{
   height: 20px;
+  padding-top: 30px;
 }
 
 .flip-button{
@@ -192,7 +193,7 @@ input {
 }
 
 .flip-image{
-  width: 20px;
+  width: 30px;
 }
 
 /* ------------------------------------------- */
@@ -298,7 +299,7 @@ input {
 
 .everythingelse {
   width: 500px;
-  height: 281px;
+  height: 350px;
 }
 
 .posterImg{
@@ -393,7 +394,6 @@ font-family: 'Rokkitt', serif;
 @media screen and (max-width: 1000px) {
   body {
     font-size: 1.4rem;
-
   }
 
   .middle-btn-space{
@@ -437,6 +437,14 @@ font-family: 'Rokkitt', serif;
     width: 90%;
     height: 500px;
     margin: auto;
+  }
+
+  .lastRowTicket{
+    padding-top: 60px;
+  }
+
+  .flip-image{
+    width: 50px;
   }
 
   .hint-board {
