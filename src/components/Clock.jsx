@@ -27,10 +27,11 @@ function Clock(props) {
             localStorage.setItem('day', todaysDate);
             localStorage.setItem('guesses', '[]');
             localStorage.setItem('guess', 1);
+            localStorage.setItem('win', 'waiting');
             localStorage.setItem('gamesPlayed', props.gamesPlayed+1)
             props.setGamesPlayed(parseInt(props.gamesPlayed)+1);
             props.setGuessList([]);
-            
+            props.setWin('waiting');
           }
 
         if (JSON.stringify(props.dailyMovieInfo) === JSON.stringify(movies[0]) && typeof sqldb === 'undefined') {
