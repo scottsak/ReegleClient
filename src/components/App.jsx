@@ -7,6 +7,7 @@ import movies from '../movie.js'
 import Autocomplete from './Autocomplete';
 import Clock from './Clock'
 import Ticket from './Ticket';
+import Timer from './Timer';
 
 // modals
 import InfoScreen from './modals/InfoScreen';
@@ -162,6 +163,8 @@ function App() {
 
       <div className='spacer'></div>
 
+
+      {win === 'waiting'? 
       <Autocomplete
         suggestions={[
           "Angular",
@@ -193,6 +196,12 @@ function App() {
         setGamesPlayed={setGamesPlayed}
         gamesPlayed={gamesPlayed}
       />
+      :
+      <Timer 
+        win = {win}
+        dailyMovieInfo = {dailyMovieInfo}
+      />
+      }
 
       <div className='spacer'></div>
 
