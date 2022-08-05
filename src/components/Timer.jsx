@@ -36,7 +36,7 @@ function Timer(props) {
     setInterval(updateTime, 1000);
     return (
         <div>
-        {props.win === 'wn' ? <h2>You Won!</h2> : <div><h2>You Lost <br /></h2> <h4>The movie was: <br />{props.dailyMovieInfo.title}</h4></div>}
+        {props.win === 'won' ? <h2>You Won!</h2> : <div><h2>You Lost <br /></h2> <h4>The movie was: <br />{props.dailyMovieInfo.title}</h4></div>}
         {/* <p className = 'afterGameScreen'>Time Until Next Game:</p> */}
         <p>Time until next game<br />{hour}:{min}:{seconds}</p>
         </div>
