@@ -27,7 +27,7 @@ const AutoComplete = ({ suggestions, date, guessUp, guessesAmount, setGuessList,
   }
   
   const getImageBlur = () => {
-    if(guessesAmount >= 7){
+    if(guessesAmount >= 7 || win==='win'){
       setBlurImage(0)
     }
     else{
