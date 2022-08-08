@@ -7,38 +7,84 @@ function Timer(props) {
     // gets the time 
     const now = new Date().toLocaleTimeString();
     const today = new Date();
-    const todaysDate = (today.getMonth()+1) + '-' + today.getDate() + '-' + today.getFullYear();
+    const todaysDate = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear();
+    // console.log(now); //12:41:54 AM
 
-    const [hour, setHoursLeft] = useState(24 - now.split(':')[0]);
+
+    let startM = now.split(':')[2].split(' ')[1];
+    let startHour = startM === 'AM' ? addLeadingZeros(12 - now.split(':')[0], 2) : addLeadingZeros(12 - now.split(':')[0], 2);
+    const [hour, setHoursLeft] = useState(startHour);
     const [min, setMinutesLeft] = useState(60 - now.split(':')[1]);
     const [seconds, setSecondsLeft] = useState(60 - now.split(':')[2].split(' ')[0]);
 
     function addLeadingZeros(num, totalLength) {
         return String(num).padStart(totalLength, '0');
-      }
+    }
 
 
     useEffect(() => {
-        
+
         updateTime();
     });
 
     function updateTime() {
-        let newHour = new Date().toLocaleTimeString().split(':')[0];
-        let newMinute = new Date().toLocaleTimeString().split(':')[1];
-        let newSecond = new Date().toLocaleTimeString().split(':')[2].split(' ')[0];
-        setHoursLeft(addLeadingZeros( 24-newHour, 2) );
+        let newNow = new Date().toLocaleTimeString()
+
+        let newMinute = newNow.split(':')[1];
+        let newSecond = newNow.split(':')[2].split(' ')[0];
+        let newM = newNow.split(':')[2].split(' ')[1];
+        let newHour = newM === 'AM' ? addLeadingZeros(35 - newNow.split(':')[0], 2) : addLeadingZeros(24 - newNow.split(':')[0], 2);
+        // if (newM === 'AM') { setHoursLeft(addLeadingZeros(12 - newHour, 2)); } else { setHoursLeft(addLeadingZeros(12 - newHour, 2)); }
+
+        setHoursLeft(newHour);
         setMinutesLeft(addLeadingZeros(60 - newMinute, 2));
         setSecondsLeft(addLeadingZeros(60 - newSecond, 2));
+    }
+
+    function MakeAnonymous(item)  {
+        let t = "";
+
+        if (typeof (item) != 'string') {
+            item = item.toString();
+        }
+        for (let i = 0; i < item.length; i++) {
+            if (item.charAt(i).match(/^[0-9a-zA-Z]+$/)) {
+                t += "x";
+            }
+            else {
+                t += item.charAt(i);
+            }
+        }
+        return t
+    }
+
+    function shareBtn(){
+        let endGuesses = JSON.parse(localStorage.getItem('guesses'));
+        let textShare = '';
+        let outOf = localStorage.getItem('win') === 'won' ? endGuesses.length : 'X';
+        textShare += 'Reegle '+ (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear() + ' '+ outOf +'/6\n'
+
+        for(let x=0; x<endGuesses.length-1; x++){
+            textShare += x+1 +' ';
+            textShare += MakeAnonymous(endGuesses[x]);
+            textShare += '\n';
+        }
+
+        let lastGuess = localStorage.getItem('win') === 'won' ? '🎟🎟🎟🎟🎟🎟' : MakeAnonymous(endGuesses[endGuesses.length-1]);
+
+        textShare +=  endGuesses.length +' '+ lastGuess
+        let share = 'hello\nhello';
+        navigator.clipboard.writeText(textShare);
     }
 
 
     setInterval(updateTime, 1000);
     return (
         <div>
-        {props.win === 'won' ? <h2>You Won!</h2> : <div><h2>You Lost <br /></h2> <h4>The movie was: <br />{props.dailyMovieInfo.title}</h4></div>}
-        {/* <p className = 'afterGameScreen'>Time Until Next Game:</p> */}
-        <p>Time until next game<br />{hour}:{min}:{seconds}</p>
+            {props.win === 'won' ? <h2>You Won!</h2> : <div><h2>You Lost <br /></h2> <h4>The movie was: <br />{props.dailyMovieInfo.title}</h4></div>}
+            {/* <p className = 'afterGameScreen'>Time Until Next Game:</p> */}
+            <p>Time until next game<br />{hour}:{min}:{seconds}</p>
+            <button onClick={shareBtn}>share</button>
         </div>
     )
 }
