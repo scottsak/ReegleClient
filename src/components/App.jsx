@@ -208,6 +208,7 @@ function App() {
       <Ticket
         movies={dailyMovieInfo}
         guessesAmount={guessesAmount}
+        setGuesses = {setGuesses}
         blurImage={blurImage}
         setBlurImage={setBlurImage}
         win={win}

@@ -34,7 +34,7 @@ function Ticket(props) {
 
             for (let i = 0; i < props.movies.title.length; i++) {
                 if (props.movies.title.charAt(i).match(/^[0-9a-zA-Z]+$/)) {
-                    t += "_";
+                    t += "X";
                 }
                 else {
                     t += props.movies.title.charAt(i);
