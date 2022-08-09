@@ -16,6 +16,7 @@ function Timer(props) {
     const [hour, setHoursLeft] = useState(startHour);
     const [min, setMinutesLeft] = useState(60 - now.split(':')[1]);
     const [seconds, setSecondsLeft] = useState(60 - now.split(':')[2].split(' ')[0]);
+    const [copied, setCopied] = useState(false);
 
     function addLeadingZeros(num, totalLength) {
         return String(num).padStart(totalLength, '0');
@@ -63,6 +64,11 @@ function Timer(props) {
         let textShare = '';
         let outOf = localStorage.getItem('win') === 'won' ? endGuesses.length : 'X';
         textShare += 'Reegle ' + (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear() + ' ' + outOf + '/6\n\n'
+        setCopied(true);
+        setTimeout(function(){
+            setCopied(false);
+          }, 3000)
+
 
         for (let x = 0; x < endGuesses.length - 1; x++) {
             textShare += x + 1 + '. ';
@@ -107,7 +113,7 @@ function Timer(props) {
                 type="button"
                 title="Share this article"
             >
-            share
+            {copied ? 'copied' : 'share'}
             </button>
         </div>
     )
