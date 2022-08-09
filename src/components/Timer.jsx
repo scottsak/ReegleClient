@@ -41,7 +41,7 @@ function Timer(props) {
         setSecondsLeft(addLeadingZeros(60 - newSecond, 2));
     }
 
-    function MakeAnonymous(item)  {
+    function MakeAnonymous(item) {
         let t = "";
 
         if (typeof (item) != 'string') {
@@ -58,23 +58,29 @@ function Timer(props) {
         return t
     }
 
-    function shareBtn(){
+    function shareBtn() {
         let endGuesses = JSON.parse(localStorage.getItem('guesses'));
         let textShare = '';
         let outOf = localStorage.getItem('win') === 'won' ? endGuesses.length : 'X';
-        textShare += 'Reegle '+ (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear() + ' '+ outOf +'/6\n'
+        textShare += 'Reegle ' + (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear() + ' ' + outOf + '/6\n'
 
-        for(let x=0; x<endGuesses.length-1; x++){
-            textShare += x+1 +' ';
+        for (let x = 0; x < endGuesses.length - 1; x++) {
+            textShare += x + 1 + ' ';
             textShare += MakeAnonymous(endGuesses[x]);
             textShare += '\n';
         }
 
-        let lastGuess = localStorage.getItem('win') === 'won' ? '🎟🎟🎟🎟🎟🎟' : MakeAnonymous(endGuesses[endGuesses.length-1]);
+        let lastGuess = localStorage.getItem('win') === 'won' ? '🎟🎟🎟🎟🎟🎟' : MakeAnonymous(endGuesses[endGuesses.length - 1]);
 
-        textShare +=  endGuesses.length +' '+ lastGuess
-        let share = 'hello\nhello';
+        textShare += endGuesses.length + ' ' + lastGuess
         navigator.clipboard.writeText(textShare);
+        navigator.share({
+                title: document.title,
+                text: textShare,
+                url: window.location.href
+            })
+            .then(() => console.log('Successful share! 🎉'))
+            .catch(err => console.error(err));
     }
 
 
