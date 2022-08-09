@@ -79,7 +79,9 @@ function Timer(props) {
             console.log("Congrats! Your browser supports Web Share API");
             navigator
                 .share({
-                    url: `https://reegle.netlify.app/`
+                    title: 'Reegle',
+                    url: `https://reegle.netlify.app/`,
+                    text: textShare,
                 })
                 .then(() => {
                     console.log("Sharing successfull");
@@ -91,31 +93,6 @@ function Timer(props) {
             console.log("Sorry! Your browser does not support Web Share API");
         }
     };
-
-    function shareBtn() {
-        let endGuesses = JSON.parse(localStorage.getItem('guesses'));
-        let textShare = '';
-        let outOf = localStorage.getItem('win') === 'won' ? endGuesses.length : 'X';
-        textShare += 'Reegle ' + (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear() + ' ' + outOf + '/6\n'
-
-        for (let x = 0; x < endGuesses.length - 1; x++) {
-            textShare += x + 1 + ' ';
-            textShare += MakeAnonymous(endGuesses[x]);
-            textShare += '\n';
-        }
-
-        let lastGuess = localStorage.getItem('win') === 'won' ? '🎟🎟🎟🎟🎟🎟' : MakeAnonymous(endGuesses[endGuesses.length - 1]);
-
-        textShare += endGuesses.length + ' ' + lastGuess
-        navigator.clipboard.writeText(textShare);
-        navigator.share({
-            title: document.title,
-            text: textShare,
-            url: window.location.href
-        })
-            .then(() => console.log('Successful share! 🎉'))
-            .catch(err => console.error(err));
-    }
 
 
     setInterval(updateTime, 1000);
@@ -130,7 +107,7 @@ function Timer(props) {
                 type="button"
                 title="Share this article"
             >
-            Share
+            share
             </button>
         </div>
     )

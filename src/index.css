@@ -457,6 +457,11 @@ font-family: 'Rokkitt', serif;
     width: 100%;
   }
 
+  .share-button{
+    width: 100px;
+    height: 60px;
+  }
+
   .guess-row {
     background-color: aquamarine;
   }
