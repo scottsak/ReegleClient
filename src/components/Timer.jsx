@@ -58,6 +58,40 @@ function Timer(props) {
         return t
     }
 
+    const handleShareButton = () => {
+        let endGuesses = JSON.parse(localStorage.getItem('guesses'));
+        let textShare = '';
+        let outOf = localStorage.getItem('win') === 'won' ? endGuesses.length : 'X';
+        textShare += 'Reegle ' + (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear() + ' ' + outOf + '/6\n'
+
+        for (let x = 0; x < endGuesses.length - 1; x++) {
+            textShare += x + 1 + ' ';
+            textShare += MakeAnonymous(endGuesses[x]);
+            textShare += '\n';
+        }
+
+        let lastGuess = localStorage.getItem('win') === 'won' ? '🎟🎟🎟🎟🎟🎟' : MakeAnonymous(endGuesses[endGuesses.length - 1]);
+
+        textShare += endGuesses.length + ' ' + lastGuess
+        navigator.clipboard.writeText(textShare);
+        // Check if navigator.share is supported by the browser
+        if (navigator.share) {
+            console.log("Congrats! Your browser supports Web Share API");
+            navigator
+                .share({
+                    url: `https://reegle.netlify.app/`
+                })
+                .then(() => {
+                    console.log("Sharing successfull");
+                })
+                .catch(() => {
+                    console.log("Sharing failed");
+                });
+        } else {
+            console.log("Sorry! Your browser does not support Web Share API");
+        }
+    };
+
     function shareBtn() {
         let endGuesses = JSON.parse(localStorage.getItem('guesses'));
         let textShare = '';
@@ -75,10 +109,10 @@ function Timer(props) {
         textShare += endGuesses.length + ' ' + lastGuess
         navigator.clipboard.writeText(textShare);
         navigator.share({
-                title: document.title,
-                text: textShare,
-                url: window.location.href
-            })
+            title: document.title,
+            text: textShare,
+            url: window.location.href
+        })
             .then(() => console.log('Successful share! 🎉'))
             .catch(err => console.error(err));
     }
@@ -90,7 +124,14 @@ function Timer(props) {
             {props.win === 'won' ? <h2>You Won!</h2> : <div><h2>You Lost <br /></h2> <h4>The movie was: <br />{props.dailyMovieInfo.title}</h4></div>}
             {/* <p className = 'afterGameScreen'>Time Until Next Game:</p> */}
             <p>Time until next game<br />{hour}:{min}:{seconds}</p>
-            <button onClick={shareBtn}>share</button>
+            <button
+                onClick={handleShareButton}
+                className="share-button"
+                type="button"
+                title="Share this article"
+            >
+            Share
+            </button>
         </div>
     )
 }
