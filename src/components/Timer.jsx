@@ -81,7 +81,7 @@ function Timer(props) {
                 .share({
                     title: 'Reegle',
                     url: `https://reegle.netlify.app/`,
-                    text: textShare+'\n',
+                    text: textShare+'\n\n',
                 })
                 .then(() => {
                     console.log("Sharing successfull");
