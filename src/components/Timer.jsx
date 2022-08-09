@@ -62,7 +62,7 @@ function Timer(props) {
         let endGuesses = JSON.parse(localStorage.getItem('guesses'));
         let textShare = '';
         let outOf = localStorage.getItem('win') === 'won' ? endGuesses.length : 'X';
-        textShare += 'Reegle ' + (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear() + ' ' + outOf + '/6\n'
+        textShare += 'Reegle ' + (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear() + ' ' + outOf + '/6\n\n'
 
         for (let x = 0; x < endGuesses.length - 1; x++) {
             textShare += x + 1 + '. ';
@@ -72,7 +72,7 @@ function Timer(props) {
 
         let lastGuess = localStorage.getItem('win') === 'won' ? '🎟🎟🎟🎟🎟🎟' : MakeAnonymous(endGuesses[endGuesses.length - 1]);
 
-        textShare += endGuesses.length + ' ' + lastGuess;
+        textShare += endGuesses.length + '. ' + lastGuess;
         navigator.clipboard.writeText(textShare);
         // Check if navigator.share is supported by the browser
         if (navigator.share) {
