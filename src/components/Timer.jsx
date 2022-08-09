@@ -65,14 +65,14 @@ function Timer(props) {
         textShare += 'Reegle ' + (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear() + ' ' + outOf + '/6\n'
 
         for (let x = 0; x < endGuesses.length - 1; x++) {
-            textShare += x + 1 + ' ';
+            textShare += x + 1 + '. ';
             textShare += MakeAnonymous(endGuesses[x]);
             textShare += '\n';
         }
 
         let lastGuess = localStorage.getItem('win') === 'won' ? '🎟🎟🎟🎟🎟🎟' : MakeAnonymous(endGuesses[endGuesses.length - 1]);
 
-        textShare += endGuesses.length + ' ' + lastGuess
+        textShare += endGuesses.length + ' ' + lastGuess;
         navigator.clipboard.writeText(textShare);
         // Check if navigator.share is supported by the browser
         if (navigator.share) {
@@ -81,7 +81,7 @@ function Timer(props) {
                 .share({
                     title: 'Reegle',
                     url: `https://reegle.netlify.app/`,
-                    text: textShare,
+                    text: textShare+'\n',
                 })
                 .then(() => {
                     console.log("Sharing successfull");
