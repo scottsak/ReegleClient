@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import movies from '../movie';
-import Axios from 'axios';
 
 function Timer(props) {
 
@@ -29,15 +27,25 @@ function Timer(props) {
     });
 
     function updateTime() {
-        let newNow = new Date().toLocaleTimeString()
-
+        let newNow = new Date().toLocaleTimeString();
+        let newHour = newNow.split(':')[0];
         let newMinute = newNow.split(':')[1];
         let newSecond = newNow.split(':')[2].split(' ')[0];
         let newM = newNow.split(':')[2].split(' ')[1];
-        let newHour = newM === 'AM' ? addLeadingZeros(35 - newNow.split(':')[0], 2) : addLeadingZeros(24 - newNow.split(':')[0], 2);
-        // if (newM === 'AM') { setHoursLeft(addLeadingZeros(12 - newHour, 2)); } else { setHoursLeft(addLeadingZeros(12 - newHour, 2)); }
-
-        setHoursLeft(newHour);
+        if(newHour === '12'){
+            if(newM === 'AM'){
+                setHoursLeft(23);
+            }
+            else{
+                setHoursLeft(11);
+            }
+        }
+        else if(newM === 'AM'){
+            setHoursLeft(12+(12-newHour));
+        }
+        else{
+            setHoursLeft(12-newHour);
+        }
         setMinutesLeft(addLeadingZeros(60 - newMinute, 2));
         setSecondsLeft(addLeadingZeros(60 - newSecond, 2));
     }
