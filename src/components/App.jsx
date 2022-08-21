@@ -80,7 +80,9 @@ function App() {
 
   const [guessesAmount, setGuesses] = useState(startGuessAmount);
 
-  const [blurImage, setBlurImage] = useState(Math.abs(guessesAmount - 7) * 15);
+  const [blurImage, setBlurImage] = useState(Math.abs(guessesAmount - 7) * 10);
+
+  console.log(blurImage);
 
   const [dailyMovieInfo, setDailyMovieInfo] = useState(movies[0])
 

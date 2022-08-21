@@ -31,7 +31,7 @@ const AutoComplete = ({ suggestions, date, guessUp, guessesAmount, setGuessList,
       setBlurImage(0)
     }
     else{
-      setBlurImage(Math.abs(guessesAmount-7)*10)
+      setBlurImage(Math.abs(guessesAmount-7)*8)
     }
     
   }
