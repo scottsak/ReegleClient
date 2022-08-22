@@ -88,7 +88,6 @@ function App() {
   let startGuesses = JSON.parse(localStorage.getItem('guesses'));
 
   if (!startGuesses) {
-    console.log("yellow")
     startGuesses = [];
     console.log(startGuesses)
     localStorage.setItem('guesses', JSON.stringify(startGuesses))
@@ -111,11 +110,7 @@ function App() {
       })
   }
 
-  // adds to the amount of guesses for the day 
-  function guessUp() {
-    localStorage.setItem('guess', guessesAmount + 1);
-    setGuesses(guessesAmount + 1)
-  }
+
 
   return (
     <div className="App">
@@ -186,8 +181,8 @@ function App() {
           "Npm"
         ]}
         date={(today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear()}
-        guessUp={guessUp}
         guessesAmount={guessesAmount}
+        setGuesses = {setGuesses}
         setGuessList={setGuessList}
         guessList={guessList}
         setBlurImage={setBlurImage}

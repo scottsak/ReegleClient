@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import ReactCardFlip from "react-card-flip";
 import Pixelify from "./Pixelify";
 import flip from '../images/flipButton.png'
+import TicketTable from './TicketTable';
 
 
 
@@ -16,6 +17,7 @@ function Ticket(props) {
         if (props.guessesAmount >= 7 || props.win === 'won') {
             props.setBlurImage(0)
         }
+        
     });
 
     const handleClick = () => {
@@ -81,41 +83,15 @@ function Ticket(props) {
                                     <div className="concave-corners__corner concave-corners__corner--tr"></div></td>
                             </tr>
                             <tr>
-                                <td className="everythingelse">
-                                    <table className="table-ticket">
-                                        <tbody>
-                                            <tr className="hint1 hint">
-                                                <td>{MovieTitleShow()}</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <h4>Genres: {props.movies.genre}</h4>
-                                                </td>
-                                            </tr>
-                                            <tr >
-                                                <td>
-                                                    {props.guessesAmount > 1 || props.win === 'won' ? <h4>Release Date: {props.movies.releaseDate}</h4> : <h4>Release Date: {MakeAnonymous(props.movies.releaseDate)}</h4>}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    {props.guessesAmount > 2 || props.win === 'won' ? <div className="middle-hint-container"><h5 className="hint middle-hints">Rated: {props.movies.rated}</h5></div> : <div className="middle-hint-container"><h5 className="hint middle-hints">Rated: {MakeAnonymous(props.movies.rated)}</h5></div>}
-                                                    {props.guessesAmount > 2 || props.win === 'won' ? <div className="middle-hint-container"><h5 className="hint middle-hints">IMDB: {props.movies.imdbRating}</h5></div> : <div className="middle-hint-container"><h5 className="hint middle-hints">IMDB: {MakeAnonymous(props.movies.imdbRating)}</h5></div>}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    {props.guessesAmount > 3 || props.win === 'won' ? <h5 className="hint">Director: {props.movies.director}</h5> : <h5>Director: {MakeAnonymous(props.movies.director)}</h5>}
-                                                </td>
-                                            </tr>
-                                            <tr><td>
-                                                {props.guessesAmount > 4 || props.win === 'won' ? <h5 className="hint">Actors: {props.movies.actors}</h5> : <h5>Actors: {MakeAnonymous(props.movies.actors)}</h5>}
-                                            </td></tr>
-
-                                        </tbody>
-                                    </table>
-                                </td>
+                                
+                                    <TicketTable 
+                                        movies = {props.movies}
+                                        MovieTitleShow = {MovieTitleShow}
+                                        MakeAnonymous = {MakeAnonymous}
+                                        win = {props.win}
+                                        guessesAmount = {props.guessesAmount}
+                                    />
+                                
                             </tr>
                             <tr>
                                 <td>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Axios from 'axios';
 // import guesses from "../guesses";
 
-const AutoComplete = ({ suggestions, date, guessUp, guessesAmount, setGuessList, guessList, setBlurImage, blurImage, win, setWin, setGamesPlayed, gamesPlayed}) => {
+const AutoComplete = ({ suggestions, date, setGuesses, guessesAmount, setGuessList, guessList, setBlurImage, blurImage, win, setWin, setGamesPlayed, gamesPlayed}) => {
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -35,6 +35,12 @@ const AutoComplete = ({ suggestions, date, guessUp, guessesAmount, setGuessList,
     }
     
   }
+
+    // adds to the amount of guesses for the day 
+    function guessUp() {
+      localStorage.setItem('guess', guessesAmount + 1);
+      setGuesses(guessesAmount + 1)
+    }
 
   const compareAns = (guess, text) => {
     Axios.get("https://reegle-server.herokuapp.com/get_movie_info", {

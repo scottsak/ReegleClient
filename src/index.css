@@ -265,8 +265,8 @@ input {
 .ticket {
   position: relative;
   background-color: #f0950f;
-  width: 45%;
-  height: 300px;
+  /* width: 45%; */
+  height: 360px;
   margin: auto;
   font-family: 'Rokkitt', serif;
 }
@@ -298,8 +298,8 @@ input {
 }
 
 .everythingelse {
-  width: 500px;
-  height: 350px;
+  width: 600px;
+  height: 337px;
 }
 
 .posterImg{
