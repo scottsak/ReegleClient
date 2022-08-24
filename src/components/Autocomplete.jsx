@@ -43,7 +43,7 @@ const AutoComplete = ({ suggestions, date, setGuesses, guessesAmount, setGuessLi
     }
 
   const compareAns = (guess, text) => {
-    Axios.get("https://reegle-server.herokuapp.com/get_movie_info", {
+    Axios.get("http://localhost:3001/get_movie_info", {
       params: {
         todaysDate: date
       }
@@ -84,8 +84,19 @@ const AutoComplete = ({ suggestions, date, setGuesses, guessesAmount, setGuessLi
 
   const onChange = (e) => {
     // Filter our suggestions that don't contain the user's input
+
+    const userInput = e.target.value;
+
+    // Filter our suggestions that don't contain the user's input
+    const unLinked = suggestions.filter(
+      (suggestion) =>
+        suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+    );
+
+    setFilteredSuggestions(unLinked);
+
     setInput(e.target.value);
-    getSuggestions(e.target.value)
+    // getSuggestions(e.target.value)
     setActiveSuggestionIndex(0);
     setShowSuggestions(true);
   };

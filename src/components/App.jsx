@@ -8,6 +8,7 @@ import Autocomplete from './Autocomplete';
 import Clock from './Clock'
 import Ticket from './Ticket';
 import Timer from './Timer';
+import movieSearchMovies from '../searching-movies.js';
 
 // modals
 import InfoScreen from './modals/InfoScreen';
@@ -98,7 +99,7 @@ function App() {
 
   // gets movie to start the game 
   function getInfoforMovie() {
-    Axios.get("https://reegle-server.herokuapp.com/get_movie_info", {
+    Axios.get("http://localhost:3001/get_movie_info", {
       params: {
         todaysDate: (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear()
       }
@@ -162,24 +163,7 @@ function App() {
 
       {win === 'waiting'? 
       <Autocomplete
-        suggestions={[
-          "Angular",
-          "Blitzjs",
-          "Gatsby",
-          "Reactjs",
-          "Vuejs",
-          "Svelte",
-          "Nextjs",
-          "Node",
-          "Express",
-          "Sails",
-          "Loopback",
-          "React-router",
-          "Redux",
-          "Flux",
-          "Yarn",
-          "Npm"
-        ]}
+        suggestions={movieSearchMovies}
         date={(today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear()}
         guessesAmount={guessesAmount}
         setGuesses = {setGuesses}
