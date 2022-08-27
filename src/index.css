@@ -155,10 +155,9 @@ input {
 
 .suggestion-active,
 .suggestions li:hover {
-  background-color: #EFEFEF;
+  background-color: #d3d3d3;
   color: black;
   cursor: pointer;
-  font-weight: 700;
 }
 
 .suggestions li:not(:last-of-type) {
