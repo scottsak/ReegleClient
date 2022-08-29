@@ -6,7 +6,6 @@ import flip from '../images/flipButton.png'
 
 
 function Ticket(props) {
-    const src = "https://image.tmdb.org/t/p/w500/rr7E0NoGKxvbkb89eR1GwfoYjpA.jpg";
     const [flipped, setFlipped] = useState(true);
 
 
