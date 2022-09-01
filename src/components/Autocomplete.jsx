@@ -86,54 +86,22 @@ const AutoComplete = ({ suggestions, date, setGuesses, guessesAmount, setGuessLi
     // Filter our suggestions that don't contain the user's input
     setInput(e.target.value);
     getSuggestions(e.target.value)
-    // setActiveSuggestionIndex(0);
     setShowSuggestions(true);
   };
 
   const onClick = (e, key) => {
     setFilteredSuggestions([]);
     setInput("");
-    // setActiveSuggestionIndex(0);
     setShowSuggestions(false);
     compareAns(e.target.innerText, key.substring(key.lastIndexOf(',')+1));
   };
 
-  // const onKeyDown = (e) => {
-  //   // User pressed the enter key
-  //   if (e.keyCode === 13) {
-  //     setInput("");
-  //     setActiveSuggestionIndex(0);
-  //     setShowSuggestions(false);
-  //     compareAns(filteredSuggestions[activeSuggestionIndex].substring(0, filteredSuggestions[activeSuggestionIndex].lastIndexOf(',')), filteredSuggestions[activeSuggestionIndex].substring(filteredSuggestions[activeSuggestionIndex].lastIndexOf(',')+1));
-  //   }
-  //   // User pressed the up arrow
-  //   else if (e.keyCode === 38) {
-  //     if (activeSuggestionIndex === 0) {
-  //       return;
-  //     }
-
-  //     setActiveSuggestionIndex(activeSuggestionIndex - 1);
-  //   }
-  //   // User pressed the down arrow
-  //   else if (e.keyCode === 40) {
-  //     if (activeSuggestionIndex - 1 === filteredSuggestions.length) {
-  //       return;
-  //     }
-
-  //     setActiveSuggestionIndex(activeSuggestionIndex + 1);
-  //   }
-  // };
 
   const SuggestionsListComponent = () => {
     return filteredSuggestions.length ? (
       <ul className="suggestions">
         {filteredSuggestions.map((suggestion, index) => {
           let className;
-
-          {/* // Flag the active suggestion with a class
-          if (index === activeSuggestionIndex) {
-            className = "suggestion-active";
-          } */}
 
           return (
             <li className={className} key={suggestion} onClick={event => onClick(event, suggestion)}>
