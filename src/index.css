@@ -158,7 +158,7 @@ input {
   background-color: #EFEFEF;
   color: black;
   cursor: pointer;
-  font-weight: 700;
+  /* font-weight: 700; */
 }
 
 .suggestions li:not(:last-of-type) {

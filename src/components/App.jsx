@@ -34,7 +34,7 @@ function App() {
 
   // gets the date information for starting information 
   const today = new Date();
-  const todaysDate = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear();
+  const todaysDate = (today.getMonth() + 1) + '-' + today.getDate()+1 + '-' + today.getFullYear();
   const lastDayPlayed = localStorage.getItem('day');
 
   // checks last day played 
@@ -110,6 +110,30 @@ function App() {
       })
   }
 
+  const getSuggestions = () => {
+    return new Promise(function (resolve, reject) {
+      Axios.get("http://localhost:3001/search_movie", {
+        params: {
+          input: "s"
+        }
+      })
+        .then((res) => {
+          setSuggestions(res.data);
+          resolve (res.data);
+        })
+        .catch((err) => {
+          console.log("err with num")
+        })
+        
+    })
+  }
+
+  const [suggestions, setSuggestions] = useState(getSuggestions);
+
+  // console.log(suggestions)
+
+
+
 
 
   return (
@@ -162,24 +186,7 @@ function App() {
 
       {win === 'waiting'? 
       <Autocomplete
-        suggestions={[
-          "Angular",
-          "Blitzjs",
-          "Gatsby",
-          "Reactjs",
-          "Vuejs",
-          "Svelte",
-          "Nextjs",
-          "Node",
-          "Express",
-          "Sails",
-          "Loopback",
-          "React-router",
-          "Redux",
-          "Flux",
-          "Yarn",
-          "Npm"
-        ]}
+        suggestions={suggestions}
         date={(today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear()}
         guessesAmount={guessesAmount}
         setGuesses = {setGuesses}
