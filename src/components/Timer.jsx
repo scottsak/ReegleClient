@@ -94,7 +94,7 @@ function Timer(props) {
             navigator
                 .share({
                     title: 'Reegle',
-                    url: `https://reegle.netlify.app/`,
+                    url: `https://www.reegle.xyz/`,
                     text: textShare+'\n\n',
                 })
                 .then(() => {
