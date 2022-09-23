@@ -8,6 +8,7 @@ import flip from '../images/flipButton.png'
 function Ticket(props) {
     const src = "https://image.tmdb.org/t/p/w500/rr7E0NoGKxvbkb89eR1GwfoYjpA.jpg";
     const [flipped, setFlipped] = useState(true);
+    const {innerWidth, innerHeight} = window;
 
 
 
@@ -16,7 +17,7 @@ function Ticket(props) {
         if (props.guessesAmount >= 7 || props.win === 'won') {
             props.setBlurImage(0)
         }
-        
+
     });
 
     const handleClick = () => {
@@ -70,7 +71,7 @@ function Ticket(props) {
 
     return (
         <div>
-            <ReactCardFlip isFlipped={flipped} flipDirection="vertical">
+            {/* <ReactCardFlip isFlipped={flipped} flipDirection="vertical">
                 <div>
                     <table ref={ticket} className="ticket">
                         <tbody>
@@ -174,10 +175,50 @@ function Ticket(props) {
                         </tbody>
                     </table>
                 </div>
-            </ReactCardFlip>
-            <div className="lastRowTicket">
+            </ReactCardFlip> */}
+            <div>{MovieTitleShow()}</div>
+            <Pixelify
+                src={props.movies.imageLink}
+                pixelSize={props.blurImage}
+                width={700}
+                height={393}
+            />
+            <table className="table-ticket">
+                <tbody>
+                    {/* <tr className="hint1 hint">
+                        <td>{MovieTitleShow()}</td>
+                    </tr> */}
+
+                    <tr>
+                        <td>
+                            <h4>Genres: {props.movies.genre}</h4>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            {props.guessesAmount > 1 || props.win === 'won' ? <h4>Release Date: {props.movies.releaseDate}</h4> : <h4>Release Date: {MakeAnonymous(props.movies.releaseDate)}</h4>}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {props.guessesAmount > 2 || props.win === 'won' ? <div className="middle-hint-container"><h5 className="hint middle-hints">Rated: {props.movies.rated}</h5></div> : <div className="middle-hint-container"><h5 className="hint middle-hints">Rated: {MakeAnonymous(props.movies.rated)}</h5></div>}
+                            {props.guessesAmount > 2 || props.win === 'won' ? <div className="middle-hint-container"><h5 className="hint middle-hints">IMDB: {props.movies.imdbRating}</h5></div> : <div className="middle-hint-container"><h5 className="hint middle-hints">IMDB: {MakeAnonymous(props.movies.imdbRating)}</h5></div>}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {props.guessesAmount > 3 || props.win === 'won' ? <h5 className="hint">Director: {props.movies.director}</h5> : <h5>Director: {MakeAnonymous(props.movies.director)}</h5>}
+                        </td>
+                    </tr>
+                    <tr><td>
+                        {props.guessesAmount > 4 || props.win === 'won' ? <h5 className="hint">Actors: {props.movies.actors}</h5> : <h5>Actors: {MakeAnonymous(props.movies.actors)}</h5>}
+                    </td></tr>
+
+                </tbody>
+                </table>
+            {/* <div className="lastRowTicket">
                 <button className="flip-button" onClick={handleClick}><img className="flip-image" src={flip} alt="flip" /></button>
-            </div>
+            </div> */}
         </div>
 
     )

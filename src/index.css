@@ -275,7 +275,9 @@ input {
 }
 
 .table-ticket {
-  width: 100%;
+  width: 700px;
+  background-color: #999;
+  border-radius: 10px;
   align-items: center;
   margin: auto;
 }
@@ -351,7 +353,7 @@ font-family: 'Rokkitt', serif;
 
 .guess-board {
   margin: 0px auto;
-  width: 60%;
+  width: 700px;
   padding: 20px;
   background-color: black;
 }
