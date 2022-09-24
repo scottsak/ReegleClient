@@ -1,5 +1,5 @@
 body {
-  background-color: #0F4C75;
+  background-color: #242424;
   text-align: center;
   /* font-family: 'League Spartan', sans-serif; */
   font-family: 'Rokkitt', serif;
@@ -110,9 +110,13 @@ body {
 }
 
 input {
-  border: 1px solid #999;
+  border: 2px solid white;
   padding: 0.5rem;
-  width: 300px;
+  width: 400px;
+  background-color: #141414;
+  border-radius: 10px;
+  color: white;
+  height: 55px;
 }
 
 .no-suggestions {
@@ -121,20 +125,20 @@ input {
 }
 
 .autocompleteWrapper{
-  width: 35%;
+  width: 400px;
   margin: 0px auto;
 }
 
 .suggestionsWrapper{
-  width: 300px;
+  width: 400px;
   margin: 0px auto;
   /* position: absolute; */
 }
 
 .suggestions {
   z-index: 100;
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: #242424;
   border: 1px solid #999;
   border-top-width: 0;
   list-style: none;
@@ -142,7 +146,7 @@ input {
   max-height: 143px;
   overflow-y: auto;
   padding-left: 0;
-  width: 300px;
+  width: 400px;
   /* width: calc(300px + 1rem); */
   position: absolute;
   margin-left: auto;
@@ -155,8 +159,8 @@ input {
 
 .suggestion-active,
 .suggestions li:hover {
-  background-color: #d3d3d3;
-  color: black;
+  background-color: #424242;
+  color: white;
   cursor: pointer;
 }
 
@@ -274,9 +278,14 @@ input {
   /* filter: blur(10px); */
 }
 
+.pixel-movie-image{
+  width: 700px;
+  height: 393;
+}
+
 .table-ticket {
   width: 700px;
-  background-color: #999;
+  background-color: #f0950f;
   border-radius: 10px;
   align-items: center;
   margin: auto;
@@ -325,6 +334,33 @@ input {
 .btn-divider {
   width: 10px;
   display: inline-block;
+}
+
+.movie-title-section{
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  margin: 0 auto;
+  padding: 20px 0px;
+}
+
+.hint-title-section{
+  margin: auto 0px;
+}
+
+.hint-lines{
+  height: 2px;
+  margin: auto 0px;
+  width: 100%;
+  background: #f0950f;
+  right: 0;
+}
+
+.hint-line-divider{
+  width: 20px;
+}
+.hint-lines-right{
+
 }
 
 .hint-board {
@@ -469,5 +505,33 @@ font-family: 'Rokkitt', serif;
 
 
 
+
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3){
+  input{
+    width: 90%;
+    height: 100px;
+    font-size: 2.5rem;
+  }
+
+  .suggestions{
+    width: 90%;
+    font-size: 2.5rem;
+    max-height: 500px;
+  }
+
+  .suggestions li:not(:last-of-type) {
+    height: 100px;
+  }
+
+  .suggestionsWrapper{
+    width: 90%;
+    margin: unset;
+  }
+
+  .autocompleteWrapper{
+    width: 90%;
+  }
 
 }

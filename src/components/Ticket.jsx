@@ -28,7 +28,7 @@ function Ticket(props) {
 
     const MovieTitleShow = () => {
         if (props.guessesAmount >= 7 || props.win === 'won') {
-            return (<h2>{props.movies.title}</h2>)
+            return (<h2 className='hint-title-section'>{props.movies.title}</h2>)
         }
 
         else if (props.guessesAmount > 5) {
@@ -42,10 +42,10 @@ function Ticket(props) {
                     t += props.movies.title.charAt(i);
                 }
             }
-            return <h2>{t}</h2>
+            return <h2 className='hint-title-section'>{t}</h2>
         }
         else {
-            return <h2>HINTS</h2>
+            return <h2 className='hint-title-section'>HINTS</h2>
         }
     }
 
@@ -176,7 +176,7 @@ function Ticket(props) {
                     </table>
                 </div>
             </ReactCardFlip> */}
-            <div>{MovieTitleShow()}</div>
+            <div className='movie-title-section'><div className='hint-lines'/><div className='hint-line-divider'/>{MovieTitleShow()}<div className='hint-line-divider'/><div className='hint-lines'/></div>
             <Pixelify
                 src={props.movies.imageLink}
                 pixelSize={props.blurImage}

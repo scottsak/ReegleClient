@@ -71,6 +71,7 @@ class Pixelify extends Component {
   render() {
     return (
       <canvas
+        className="pixel-movie-image"
         ref={canvas => {
           this.canvas = canvas;
         }}

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 
+
+
+
 // importing jsx files
 import GuessBoard from './GuessBoard';
 import movies from '../movie.js'
@@ -98,7 +101,8 @@ function App() {
 
   // gets movie to start the game 
   function getInfoforMovie() {
-    Axios.get("https://reegle-server.herokuapp.com/get_movie_info", {
+    // Axios.get("https://reegle-server.herokuapp.com/get_movie_info", {
+      Axios.get("http://localhost:3001/get_movie_info", {
       params: {
         todaysDate: (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear()
       }
@@ -117,14 +121,15 @@ function App() {
       <div className='header'>
         <div className='top left'>
           <div className='game-title'>
-            <h1>reegle</h1>
+            <h1>REEGLE</h1>
           </div>
         </div>
       </div>
       <div className='top right'>
         {/* header buttons left side */}
         <div className='right-top-div'>
-          <button className='top-button rules-button' onClick={() => setShowRules(true)}><img className='top-button-image' src={q}></img></button>
+          
+        <button className='top-button rules-button' onClick={() => setShowRules(true)}><img className='top-button-image' src={q}></img></button>
           <RulesScreen title="My Modal" onClose={() => setShowRules(false)} show={showRules}></RulesScreen>
           <div className='btn-space'></div>
           <button className='top-button stats-button' onClick={() => setShowStat(true)}><img className='top-button-image' src={stats}></img></button>
@@ -199,7 +204,7 @@ function App() {
       />
       }
 
-      <div className='spacer'></div>
+      {/* <div className='spacer'></div> */}
 
       <Ticket
         movies={dailyMovieInfo}
