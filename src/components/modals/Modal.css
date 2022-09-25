@@ -20,8 +20,9 @@
   }
   
   .modal-button{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    font-size: 25px;
+    height: 40px;
     border-radius: 50%;
   } 
 
@@ -70,4 +71,25 @@
   .links:hover{
     color: aliceblue;
     text-decoration: none;
+  }
+
+  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+    .modal-title{
+      font-size: 60px;
+    }
+
+    .modal-button{
+      width: 80px;
+      height: 80px;
+      font-size: 50px;
+    }
+
+    .modal-content{
+      width: 80%;
+    }
+
+    .modal-body{
+      font-size: 50px;
+    }
+
   }
