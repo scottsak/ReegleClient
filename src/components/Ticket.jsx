@@ -1,14 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import ReactCardFlip from "react-card-flip";
+import React, {useEffect} from 'react';
 import Pixelify from "./Pixelify";
-import flip from '../images/flipButton.png'
 
 
 
 function Ticket(props) {
     const src = "https://image.tmdb.org/t/p/w500/rr7E0NoGKxvbkb89eR1GwfoYjpA.jpg";
-    const [flipped, setFlipped] = useState(true);
-    const { innerWidth, innerHeight } = window;
+
 
 
 
@@ -19,10 +16,6 @@ function Ticket(props) {
         }
 
     });
-
-    const handleClick = () => {
-        setFlipped(!flipped);
-    }
 
 
 
@@ -66,8 +59,6 @@ function Ticket(props) {
         }
         return t
     }
-
-    const ticket = useRef(null);
 
     return (
         <div>
