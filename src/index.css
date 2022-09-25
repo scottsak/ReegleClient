@@ -1,36 +1,59 @@
+:root {
+  --main-color: #f0950f;
+  --page-background-color: #242424;
+  --highlight-over: #424242;
+}
+
 body {
-  background-color: #0F4C75;
+  background-color: var(--page-background-color);
   text-align: center;
   /* font-family: 'League Spartan', sans-serif; */
   font-family: 'Rokkitt', serif;
   color: white;
 }
 
-button{
+h4 {
+  margin-top: 8px;
+}
+
+input:focus {
+  outline: none !important;
+  border-color: var(--main-color);
+  box-shadow: 0 0 5px var(--main-color);
+}
+
+button {
   border: none;
 }
 
-.top-button-image{
+.top-button-image {
   width: 15px;
 }
 
-.top-button{
+.top-button {
   border-radius: 50%;
   width: 40px;
   height: 40px;
 }
 
-.right-top-div{
+.right-top-div {
   display: inline-block;
 }
 
-.game-title h1 {
-  font-family: 'Monoton', cursive;
-  color: #f0950f;
-  font-size: 45px;
+.clue-list {
+  padding: 0px 10px;
+  border: 2px solid var(--main-color);
 }
 
-.spacer{
+.game-title {
+  font-family: 'Monoton', cursive;
+  color: var(--main-color);
+  font-size: 45px;
+  display: flex;
+  margin: 0px auto;
+}
+
+.spacer {
   height: 30px;
 }
 
@@ -43,10 +66,12 @@ button{
 .header {
   overflow: hidden;
   position: relative;
+  /* width: 700px; */
+  margin: 0px auto;
   /* background-color: #f1f1f1; */
 }
 
-.left{
+.left {
   /* float: left; */
   text-align: center;
   /* padding: 12px; */
@@ -58,21 +83,20 @@ button{
   right: 0px;
   position: absolute;
   text-align: center;
-  padding: 12px;
+  /* padding: 12px; */
   text-decoration: none;
-  font-size: 18px; 
+  font-size: 18px;
   /* line-height: 45px; */
   border-radius: 4px;
 }
 
-.scott-logo{
+.scott-logo {
   width: 25px;
 }
 
 
-.info-button{
-  
-}
+.info-button {}
+
 /* .header{
   display: grid;
   align-content: space-evenly;
@@ -110,9 +134,13 @@ body {
 }
 
 input {
-  border: 1px solid #999;
+  border: 2px solid var(--main-color);
   padding: 0.5rem;
-  width: 300px;
+  width: 400px;
+  background-color: var(--page-background-color);
+  border-radius: 10px;
+  color: white;
+  height: 55px;
 }
 
 .no-suggestions {
@@ -120,21 +148,21 @@ input {
   padding: 0.5rem;
 }
 
-.autocompleteWrapper{
-  width: 35%;
+.autocompleteWrapper {
+  width: 400px;
   margin: 0px auto;
 }
 
-.suggestionsWrapper{
-  width: 300px;
+.suggestionsWrapper {
+  width: 400px;
   margin: 0px auto;
   /* position: absolute; */
 }
 
 .suggestions {
   z-index: 100;
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: var(--page-background-color);
   border: 1px solid #999;
   border-top-width: 0;
   list-style: none;
@@ -142,7 +170,7 @@ input {
   max-height: 143px;
   overflow-y: auto;
   padding-left: 0;
-  width: 300px;
+  width: 400px;
   /* width: calc(300px + 1rem); */
   position: absolute;
   margin-left: auto;
@@ -155,8 +183,8 @@ input {
 
 .suggestion-active,
 .suggestions li:hover {
-  background-color: #d3d3d3;
-  color: black;
+  background-color: var(--highlight-over);
+  color: white;
   cursor: pointer;
 }
 
@@ -181,89 +209,38 @@ input {
   display: block;
 }
 
-.lastRowTicket{
+.lastRowTicket {
   height: 20px;
   padding-top: 30px;
 }
 
-.flip-button{
+.flip-button {
   background-color: inherit;
   border: none;
 }
 
-.flip-image{
+.flip-image {
   width: 30px;
 }
 
-/* ------------------------------------------- */
-
-:root {
-  --concave-corners-background: rgba(0, 0, 0, 0.3);
-  --concave-corners-size: 2rem;
+.share-button {
+  width: 90px;
+  height: 55px;
+  color: var(--main-color);
+  background-color: inherit;
+  border: 2px solid var(--main-color);
+  border-radius: 10px;
 }
 
-.concave-corners {
-  background-color: var(--concave-corners-background);
+.share-button:hover {
+  background-color: var(--main-color);
+  color: black;
 
-  /* Used to position the corners */
-  position: relative;
-
-  /* Misc */
-  height: 100%;
 }
-
-.concave-corners__corner {
-  /* Absolute position */
-  position: absolute;
-
-  /* Size */
-  height: var(--concave-corners-size);
-  width: var(--concave-corners-size);
-
-  background: #0F4C75;
-}
-
-.concave-corners__corner--tl {
-  /* Position */
-  left: 0;
-  top: 0;
-
-  /* Border radius */
-  border-radius: 0 0 var(--concave-corners-size) 0;
-}
-
-.concave-corners__corner--tr {
-  /* Position */
-  right: 0;
-  top: 0;
-
-  /* Border radius */
-  border-radius: 0 0 0 var(--concave-corners-size);
-}
-
-.concave-corners__corner--bl {
-  /* Position */
-  bottom: 0;
-  left: 0;
-
-  /* Border radius */
-  border-radius: 0 var(--concave-corners-size) 0 0;
-}
-
-.concave-corners__corner--br {
-  /* Position */
-  bottom: 0;
-  right: 0;
-
-  /* Border radius */
-  border-radius: var(--concave-corners-size) 0 0 0;
-}
-
-/* ------------------------------------------- */
 
 .ticket {
   position: relative;
-  background-color: #f0950f;
+  background-color: var(--main-color);
   /* width: 45%; */
   height: 360px;
   margin: auto;
@@ -274,10 +251,22 @@ input {
   /* filter: blur(10px); */
 }
 
+.pixel-movie-image {
+  width: 700px;
+  height: 393;
+}
+
 .table-ticket {
-  width: 100%;
+  width: 700px;
+  background-color: var(--highlight-over);
+  border: 2px solid var(--main-color);
+  /* border-radius: 10px; */
   align-items: center;
   margin: auto;
+}
+
+.anon-hint {
+  color: #999;
 }
 
 .ticket-ends {
@@ -285,7 +274,7 @@ input {
   padding: 20px 0px;
 }
 
-.backside-of-ticket{
+.backside-of-ticket {
   float: left;
   width: 50%;
 }
@@ -301,7 +290,7 @@ input {
   height: 337px;
 }
 
-.posterImg{
+.posterImg {
   filter: blur(8px);
 }
 
@@ -325,6 +314,32 @@ input {
   display: inline-block;
 }
 
+.movie-title-section {
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  margin: 0 auto;
+  padding: 20px 0px;
+}
+
+.hint-title-section {
+  margin: auto 0px;
+}
+
+.hint-lines {
+  height: 2px;
+  margin: auto 0px;
+  width: 40%;
+  background: var(--main-color);
+  right: 0;
+}
+
+.hint-line-divider {
+  width: 20px;
+}
+
+.hint-lines-right {}
+
 .hint-board {
   /* width: 90%; */
   background-color: white;
@@ -336,28 +351,28 @@ input {
   width: 80%;
 }
 
-#guess-title{
+#guess-title {
   /* font-family: 'Bebas Neue', cursive; */
-/* font-family: 'Bungee Outline', cursive; */
-/* font-family: 'Bungee Shade', cursive; */
-/* font-family: 'Codystar', cursive; */
-/* font-family: 'League Spartan', sans-serif; */
-/* font-family: 'Monoton', cursive; */
-/* font-family: 'Montserrat Subrayada', sans-serif; */
-font-family: 'Rokkitt', serif;
-/* font-family: 'Stalinist One', cursive; */
-/* font-family: 'Train One', cursive; */
+  /* font-family: 'Bungee Outline', cursive; */
+  /* font-family: 'Bungee Shade', cursive; */
+  /* font-family: 'Codystar', cursive; */
+  /* font-family: 'League Spartan', sans-serif; */
+  /* font-family: 'Monoton', cursive; */
+  /* font-family: 'Montserrat Subrayada', sans-serif; */
+  font-family: 'Rokkitt', serif;
+  /* font-family: 'Stalinist One', cursive; */
+  /* font-family: 'Train One', cursive; */
 }
 
 .guess-board {
   margin: 0px auto;
-  width: 60%;
+  width: 700px;
   padding: 20px;
   background-color: black;
 }
 
 .guess-heading {
-  color: #fae042;
+  color: var(--main-color);
 
 }
 
@@ -382,11 +397,11 @@ font-family: 'Rokkitt', serif;
   padding: 20px;
 }
 
-.guess-section{
+.guess-section {
   border: 2px solid black;
 }
 
-.footer{
+.footer {
   padding-bottom: 70px;
 }
 
@@ -395,7 +410,7 @@ font-family: 'Rokkitt', serif;
     font-size: 1.4rem;
   }
 
-  .middle-btn-space{
+  .middle-btn-space {
     display: none;
   }
 
@@ -403,11 +418,11 @@ font-family: 'Rokkitt', serif;
     font-size: 120px;
   }
 
-  .right{
+  .right {
     display: grid;
   }
 
-  .top-button{
+  .top-button {
     height: 50px;
     width: 50px;
   }
@@ -418,11 +433,11 @@ font-family: 'Rokkitt', serif;
     font-size: 40px;
   }
 
-  .guess-board{
+  .guess-board {
     width: 100%;
   }
 
-  .name-of-guess{
+  .name-of-guess {
     font-size: 3rem;
   }
 
@@ -438,11 +453,11 @@ font-family: 'Rokkitt', serif;
     margin: auto;
   }
 
-  .lastRowTicket{
+  .lastRowTicket {
     padding-top: 60px;
   }
 
-  .flip-image{
+  .flip-image {
     width: 50px;
   }
 
@@ -456,7 +471,7 @@ font-family: 'Rokkitt', serif;
     width: 100%;
   }
 
-  .share-button{
+  .share-button {
     width: 100px;
     height: 60px;
   }
@@ -466,6 +481,78 @@ font-family: 'Rokkitt', serif;
   }
 
 
+
+
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+
+  h4 {
+    font-size: 2.7rem;
+  }
+
+  .game-title{
+    font-size: 5rem;
+  }
+
+  .top-button{
+    height: 80px;
+    width: 80px;
+  }
+  
+  .top-button-image{
+    width: 35px;
+  }
+  
+  .scott-logo{
+    width: 40px !important;
+  }
+
+  input {
+    width: 85%;
+    height: 100px;
+    font-size: 2.5rem;
+  }
+
+  .guess-board {
+    width: 90%;
+    /* padding: 0px; */
+  }
+
+  .movie-title-section {
+    width: 90%;
+  }
+
+  .hint-title-section{
+    font-size: 3rem;
+  }
+
+  .pixel-movie-image {
+    width: 90%;
+  }
+
+  .table-ticket {
+    width: 90%;
+  }
+
+  .suggestions {
+    width: 85%;
+    font-size: 2.5rem;
+    max-height: 500px;
+  }
+
+  .suggestions li:not(:last-of-type) {
+    height: 100px;
+  }
+
+  .suggestionsWrapper {
+    width: 85%;
+    margin: unset;
+  }
+
+  .autocompleteWrapper {
+    width: 85%;
+  }
 
 
 }

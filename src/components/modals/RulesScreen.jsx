@@ -33,7 +33,7 @@ const StatScreen = props => {
             </button>
           </div>
           <div className="modal-body">
-            <p>1. Use the button under the ticket to flip between the hints and the image<br/>
+            <p>1. Look at the hints provided and try and piece together what movie could fit all of these clues <br/>
             2. Use the search bar to guess a movie <br />
             3. You have 6 tries to guess the movie<br />
             4. With each guess you will get a new hint and the image will be more clear<br />

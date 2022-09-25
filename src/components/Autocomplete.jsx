@@ -11,6 +11,7 @@ const AutoComplete = ({ suggestions, date, setGuesses, guessesAmount, setGuessLi
   const getSuggestions = (userInput) => {
     return new Promise(function (resolve, reject) {
       Axios.get("https://reegle-server.herokuapp.com/search_movie", {
+        // Axios.get("http://localhost:3001/search_movie", {
         params: {
           input: userInput
         }
@@ -44,6 +45,7 @@ const AutoComplete = ({ suggestions, date, setGuesses, guessesAmount, setGuessLi
 
   const compareAns = (guess, text) => {
     Axios.get("https://reegle-server.herokuapp.com/get_movie_info", {
+      // Axios.get("http://localhost:3001/get_movie_info", {
       params: {
         todaysDate: date
       }
