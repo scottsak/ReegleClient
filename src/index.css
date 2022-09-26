@@ -16,6 +16,15 @@ h4 {
   margin-top: 8px;
 }
 
+button:hover{
+  border: var(--main-color);
+}
+
+button:focus {
+  outline: var(--main-color) !important;
+  border: var(--main-color);
+}
+
 input:focus {
   outline: none !important;
   border-color: var(--main-color);
