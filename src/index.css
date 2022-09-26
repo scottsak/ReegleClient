@@ -7,8 +7,8 @@
 body {
   background-color: var(--page-background-color);
   text-align: center;
-  /* font-family: 'League Spartan', sans-serif; */
-  font-family: 'Rokkitt', serif;
+  font-family: 'League Spartan', sans-serif;
+  /* font-family: 'Rokkitt', serif; */
   color: white;
 }
 
@@ -136,10 +136,6 @@ button {
 
 .topnav .search-container button:hover {
   background: #ccc;
-}
-
-body {
-  font-family: sans-serif;
 }
 
 input {
@@ -347,7 +343,6 @@ input {
   width: 20px;
 }
 
-.hint-lines-right {}
 
 .hint-board {
   /* width: 90%; */
@@ -358,19 +353,6 @@ input {
   align-items: center;
   margin: auto;
   width: 80%;
-}
-
-#guess-title {
-  /* font-family: 'Bebas Neue', cursive; */
-  /* font-family: 'Bungee Outline', cursive; */
-  /* font-family: 'Bungee Shade', cursive; */
-  /* font-family: 'Codystar', cursive; */
-  /* font-family: 'League Spartan', sans-serif; */
-  /* font-family: 'Monoton', cursive; */
-  /* font-family: 'Montserrat Subrayada', sans-serif; */
-  font-family: 'Rokkitt', serif;
-  /* font-family: 'Stalinist One', cursive; */
-  /* font-family: 'Train One', cursive; */
 }
 
 .guess-board {
