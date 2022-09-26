@@ -36,7 +36,7 @@ const StatScreen = props => {
             <h4>Games Played: {localStorage.getItem('gamesPlayed')}</h4>
             <h4>Wins: {localStorage.getItem('wins')}</h4>
             <h4>Losses: {localStorage.getItem('losses')}</h4>
-            <h4>Win %: {isNaN(parseInt(JSON.parse(localStorage.getItem('wins')))/parseInt(JSON.parse(localStorage.getItem('gamesPlayed')))*100) ? "No Data" : (parseInt(JSON.parse(localStorage.getItem('wins')))/parseInt(JSON.parse(localStorage.getItem('gamesPlayed')))*100) + "%"}</h4>
+            <h4>Win %: {isNaN(parseInt(JSON.parse(localStorage.getItem('wins')))/parseInt(JSON.parse(localStorage.getItem('gamesPlayed')))*100) ? "No Data" : (parseInt(JSON.parse(localStorage.getItem('wins')))/parseInt(JSON.parse(localStorage.getItem('gamesPlayed')))*100).toFixed(2) + "%"}</h4>
             </div>
         </div>
       </div>
