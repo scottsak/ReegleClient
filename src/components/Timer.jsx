@@ -5,8 +5,6 @@ function Timer(props) {
     // gets the time 
     const now = new Date().toLocaleTimeString();
     const today = new Date();
-    const todaysDate = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear();
-    // console.log(now); //12:41:54 AM
 
 
     let startM = now.split(':')[2].split(' ')[1];
@@ -113,7 +111,6 @@ function Timer(props) {
     return (
         <div>
             {props.win === 'won' ? <h2>You Won!</h2> : <div><h2>You Lost</h2></div>}
-            {/* <p className = 'afterGameScreen'>Time Until Next Game:</p> */}
             <p>Time until next game<br />{hour}:{min}:{seconds}</p>
             <button
                 onClick={handleShareButton}

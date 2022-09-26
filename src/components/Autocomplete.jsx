@@ -125,7 +125,6 @@ const AutoComplete = ({ suggestions, date, setGuesses, guessesAmount, setGuessLi
         placeholder={"Guess "+guessesAmount+" of 6"}
         type="text"
         onChange={onChange}
-        // onKeyDown={onKeyDown}
         value={input}
       />}
       

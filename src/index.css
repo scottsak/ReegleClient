@@ -1,3 +1,4 @@
+/* general rules */
 :root {
   --main-color: #f0950f;
   --page-background-color: #242424;
@@ -8,12 +9,15 @@ body {
   background-color: var(--page-background-color);
   text-align: center;
   font-family: 'League Spartan', sans-serif;
-  /* font-family: 'Rokkitt', serif; */
   color: white;
 }
 
 h4 {
   margin-top: 8px;
+}
+
+button {
+  border: none;
 }
 
 button:hover{
@@ -31,10 +35,8 @@ input:focus {
   box-shadow: 0 0 5px var(--main-color);
 }
 
-button {
-  border: none;
-}
 
+/* top elements */
 .top-button-image {
   width: 15px;
 }
@@ -75,27 +77,20 @@ button {
 .header {
   overflow: hidden;
   position: relative;
-  /* width: 700px; */
   margin: 0px auto;
-  /* background-color: #f1f1f1; */
 }
 
 .left {
-  /* float: left; */
   text-align: center;
-  /* padding: 12px; */
 }
 
 .right {
-  /* float: right; */
   top: 0px;
   right: 0px;
   position: absolute;
   text-align: center;
-  /* padding: 12px; */
   text-decoration: none;
   font-size: 18px;
-  /* line-height: 45px; */
   border-radius: 4px;
 }
 
@@ -104,40 +99,7 @@ button {
 }
 
 
-.info-button {}
-
-/* .header{
-  display: grid;
-  align-content: space-evenly;
-  grid-template-columns: auto auto auto;
-} */
-
-.topnav .search-container {
-  float: right;
-}
-
-.topnav input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border: none;
-}
-
-.topnav .search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-}
-
-.topnav .search-container button:hover {
-  background: #ccc;
-}
-
+/* autocomplete elements */
 input {
   border: 2px solid var(--main-color);
   padding: 0.5rem;
@@ -161,7 +123,6 @@ input {
 .suggestionsWrapper {
   width: 400px;
   margin: 0px auto;
-  /* position: absolute; */
 }
 
 .suggestions {
@@ -176,7 +137,6 @@ input {
   overflow-y: auto;
   padding-left: 0;
   width: 400px;
-  /* width: calc(300px + 1rem); */
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -243,19 +203,6 @@ input {
 
 }
 
-.ticket {
-  position: relative;
-  background-color: var(--main-color);
-  /* width: 45%; */
-  height: 360px;
-  margin: auto;
-  font-family: 'Rokkitt', serif;
-}
-
-.hint1 {
-  /* filter: blur(10px); */
-}
-
 .pixel-movie-image {
   width: 700px;
   height: 393;
@@ -265,7 +212,6 @@ input {
   width: 700px;
   background-color: var(--highlight-over);
   border: 2px solid var(--main-color);
-  /* border-radius: 10px; */
   align-items: center;
   margin: auto;
 }
@@ -285,7 +231,6 @@ input {
 }
 
 .date {
-  /* writing-mode: tb-rl; */
   transform: rotate(-180deg);
   font-size: 25px;
 }
@@ -300,7 +245,6 @@ input {
 }
 
 .middle-hint-container {
-  /* width: 100%; */
   display: contents;
 }
 
@@ -345,7 +289,6 @@ input {
 
 
 .hint-board {
-  /* width: 90%; */
   background-color: white;
 }
 
@@ -373,15 +316,7 @@ input {
 }
 
 .guess-list {
-  /* font-family: 'Bebas Neue', cursive; */
-  /* font-family: 'Bungee Outline', cursive; */
-  /* font-family: 'Bungee Shade', cursive; */
-  /* font-family: 'Codystar', cursive; */
-  /* font-family: 'League Spartan', sans-serif; */
-  /* font-family: 'Monoton', cursive; */
-  /* font-family: 'Montserrat Subrayada', sans-serif; */
   font-family: 'Rokkitt', serif;
-  /* font-family: 'Train One', cursive; */
   margin: 0px auto;
   width: 100%;
   background-color: white;
@@ -396,6 +331,8 @@ input {
   padding-bottom: 70px;
 }
 
+
+/* smaller screens */
 @media screen and (max-width: 1000px) {
   body {
     font-size: 1.4rem;
@@ -470,12 +407,10 @@ input {
   .guess-row {
     background-color: aquamarine;
   }
-
-
-
-
 }
 
+
+/* phone screens */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
 
   h4 {
