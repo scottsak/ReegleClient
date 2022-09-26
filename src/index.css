@@ -550,10 +550,6 @@ input {
     max-height: 500px;
   }
 
-  .suggestions li:not(:last-of-type) {
-    height: 100px;
-  }
-
   .suggestionsWrapper {
     width: 85%;
     margin: unset;
