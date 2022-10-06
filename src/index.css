@@ -45,6 +45,8 @@ input:focus {
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  border: 2px solid var(--main-color);
+  background-color: var(--page-background-color);
 }
 
 .right-top-div {
