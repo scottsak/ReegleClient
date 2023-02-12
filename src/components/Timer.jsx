@@ -83,27 +83,29 @@ function Timer(props) {
         }
 
         let lastGuess = localStorage.getItem('win') === 'won' ? '🎟🎟🎟🎟🎟🎟' : MakeAnonymous(endGuesses[endGuesses.length - 1]);
+        
 
-        textShare += endGuesses.length + '. ' + lastGuess;
+        textShare += endGuesses.length + '. ' + lastGuess +  '\n';
+        textShare += 'https://www.reegle.xyz/';
         navigator.clipboard.writeText(textShare);
-        // Check if navigator.share is supported by the browser
-        if (navigator.share) {
-            console.log("Congrats! Your browser supports Web Share API");
-            navigator
-                .share({
-                    title: 'Reegle',
-                    url: `https://www.reegle.xyz/`,
-                    text: textShare+'\n\n',
-                })
-                .then(() => {
-                    console.log("Sharing successfull");
-                })
-                .catch(() => {
-                    console.log("Sharing failed");
-                });
-        } else {
-            console.log("Sorry! Your browser does not support Web Share API");
-        }
+        // // Check if navigator.share is supported by the browser
+        // if (navigator.share) {
+        //     console.log("Congrats! Your browser supports Web Share API");
+        //     navigator
+        //         .share({
+        //             title: 'Reegle',
+        //             url: `https://www.reegle.xyz/`,
+        //             text: textShare+'\n\n',
+        //         })
+        //         .then(() => {
+        //             console.log("Sharing successfull");
+        //         })
+        //         .catch(() => {
+        //             console.log("Sharing failed");
+        //         });
+        // } else {
+        //     console.log("Sorry! Your browser does not support Web Share API");
+        // }
     };
 
 
