@@ -8,7 +8,7 @@
 body {
   background-color: var(--page-background-color);
   text-align: center;
-  font-family: 'League Spartan', sans-serif;
+  font-family: "League Spartan", sans-serif;
   color: white;
 }
 
@@ -20,7 +20,7 @@ button {
   border: none;
 }
 
-button:hover{
+button:hover {
   border: var(--main-color);
 }
 
@@ -34,7 +34,6 @@ input:focus {
   border-color: var(--main-color);
   box-shadow: 0 0 5px var(--main-color);
 }
-
 
 /* top elements */
 .top-button-image {
@@ -59,11 +58,15 @@ input:focus {
 }
 
 .game-title {
-  font-family: 'Monoton', cursive;
+  font-family: "Monoton", cursive;
   color: var(--main-color);
   font-size: 45px;
   display: flex;
   margin: 0px auto;
+}
+
+.maintenanceMode {
+  background-color: transparent !important;
 }
 
 .spacer {
@@ -99,7 +102,6 @@ input:focus {
 .scott-logo {
   width: 25px;
 }
-
 
 /* autocomplete elements */
 input {
@@ -167,7 +169,6 @@ input {
   height: 30px;
 }
 
-
 .text-area {
   padding-bottom: 30px;
 }
@@ -202,7 +203,6 @@ input {
 .share-button:hover {
   background-color: var(--main-color);
   color: black;
-
 }
 
 .pixel-movie-image {
@@ -257,7 +257,6 @@ input {
 
 .guess-box {
   height: 40px;
-
 }
 
 .btn-divider {
@@ -289,7 +288,6 @@ input {
   width: 20px;
 }
 
-
 .hint-board {
   background-color: white;
 }
@@ -309,7 +307,6 @@ input {
 
 .guess-heading {
   color: var(--main-color);
-
 }
 
 .name-of-guess {
@@ -318,7 +315,7 @@ input {
 }
 
 .guess-list {
-  font-family: 'Rokkitt', serif;
+  font-family: "Rokkitt", serif;
   margin: 0px auto;
   width: 100%;
   background-color: white;
@@ -332,7 +329,6 @@ input {
 .footer {
   padding-bottom: 70px;
 }
-
 
 /* smaller screens */
 @media screen and (max-width: 1000px) {
@@ -371,7 +367,8 @@ input {
     font-size: 3rem;
   }
 
-  .btn-divider {}
+  .btn-divider {
+  }
 
   .text-label {
     font-size: 40px;
@@ -411,28 +408,26 @@ input {
   }
 }
 
-
 /* phone screens */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-
   h4 {
     font-size: 2.7rem;
   }
 
-  .game-title{
+  .game-title {
     font-size: 5rem;
   }
 
-  .top-button{
+  .top-button {
     height: 80px;
     width: 80px;
   }
-  
-  .top-button-image{
+
+  .top-button-image {
     width: 35px;
   }
-  
-  .scott-logo{
+
+  .scott-logo {
     width: 40px !important;
   }
 
@@ -451,7 +446,7 @@ input {
     width: 90%;
   }
 
-  .hint-title-section{
+  .hint-title-section {
     font-size: 3rem;
   }
 
@@ -477,6 +472,4 @@ input {
   .autocompleteWrapper {
     width: 85%;
   }
-
-
 }
