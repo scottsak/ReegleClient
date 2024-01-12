@@ -16,7 +16,7 @@ function App() {
   const todaysDate =
     today.getMonth() + 1 + "-" + today.getDate() + "-" + today.getFullYear();
   const lastDayPlayed = localStorage.getItem("day");
-  const underMaintenance = true;
+  const underMaintenance = false;
 
   console.log("scotttest underMaintenance", underMaintenance);
 
