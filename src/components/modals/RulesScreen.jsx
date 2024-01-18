@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import './Modal.css'
 
-const StatScreen = props => {
+const RulesScreen = props => {
   const closeOnEscapeKeyDown = e => {
     if ((e.charCode || e.keyCode) === 27) {
       props.onClose();
@@ -46,4 +46,4 @@ const StatScreen = props => {
   );
 };
 
-export default StatScreen;
+export default RulesScreen;

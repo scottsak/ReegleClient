@@ -18,7 +18,7 @@ function App() {
   const lastDayPlayed = localStorage.getItem("day");
   const underMaintenance = false;
 
-  console.log("scotttest underMaintenance", underMaintenance);
+  console.debug("scotttest underMaintenance", underMaintenance);
 
   // checks last day played
   if (lastDayPlayed !== todaysDate) {
@@ -30,6 +30,7 @@ function App() {
 
   // gets info for stats
   let startGamesPlayed = JSON.parse(localStorage.getItem("gamesPlayed"));
+  const firstTime = !!startGamesPlayed ? false : true;
   if (startGamesPlayed === null) {
     startGamesPlayed = 0;
     localStorage.setItem("gamesPlayed", 0);
@@ -111,7 +112,7 @@ function App() {
             gamesPlayed={gamesPlayed}
             setGamesPlayed={setGamesPlayed}
           />
-          <GuessBoard guessList={guessList} gamesPlayed={gamesPlayed} />
+          <GuessBoard guessList={guessList} gamesPlayed={gamesPlayed} firstTime={firstTime} />
 
           <div className="spacer"></div>
 

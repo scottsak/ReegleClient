@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import stats from "../images/stats.png";
 import q from "../images/question-mark.png";
@@ -17,7 +17,12 @@ function GuessBoard(props) {
   const [showStat, setShowStat] = useState(false);
   const [showRules, setShowRules] = useState(false);
   const [showScott, setShowScott] = useState(false);
-  console.log("scotttest here guess");
+
+  useEffect(() => {
+    if(!!props.firstTime){
+      setShowRules(true)
+    }
+  }, []);
 
   return (
     <div className="guess-board">
@@ -95,7 +100,7 @@ function GuessBoard(props) {
           ))}
         </div>
       )}
-    </div>
+    </div> 
   );
 }
 
