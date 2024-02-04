@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
-import { CSSTransition } from "react-transition-group";
-import "./Modal.css";
+import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import { CSSTransition } from 'react-transition-group';
+import closeButton from '../../images/x-symbol.svg';
+import './Modal.css';
 
 const Scott = (props) => {
   const closeOnEscapeKeyDown = (e) => {
@@ -11,9 +12,9 @@ const Scott = (props) => {
   };
 
   useEffect(() => {
-    document.body.addEventListener("keydown", closeOnEscapeKeyDown);
+    document.body.addEventListener('keydown', closeOnEscapeKeyDown);
     return function cleanup() {
-      document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
+      document.body.removeEventListener('keydown', closeOnEscapeKeyDown);
     };
   }, []);
 
@@ -23,18 +24,18 @@ const Scott = (props) => {
       unmountOnExit
       timeout={{ enter: 0, exit: 300 }}
     >
-      <div className="modal" onClick={props.onClose}>
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <div className="modal-header">
-            <h2 className="modal-title">ABOUT ME</h2>
-            <button onClick={props.onClose} className="button modal-button">
-              x
+      <div className='modal' onClick={props.onClose}>
+        <div className='modal-content' onClick={(e) => e.stopPropagation()}>
+          <div className='modal-header'>
+            <h2 className='modal-title'>ABOUT ME</h2>
+            <button onClick={props.onClose} className='button modal-button'>
+              <img src={closeButton} alt='close button' width={15} />
             </button>
           </div>
-          <div className="modal-body">
+          <div className='modal-body'>
             <h3>Come Visit My Personal Website</h3>
             <h4>
-              <a className="links" href="https://scottsakurai.com/">
+              <a className='links' href='https://scottsakurai.com/'>
                 scottsakurai.com
               </a>
             </h4>
@@ -43,19 +44,19 @@ const Scott = (props) => {
               If you are a hiring manager please visit my website or email me!
             </p>
           </div>
-          <div className="modal-footer">
-            <p className="owner">
-              email me at{" "}
-              <a className="links" href="mailto:scott.t.sakurai@gmail.com">
+          <div className='modal-footer'>
+            <p className='owner'>
+              email me at{' '}
+              <a className='links' href='mailto:scott.t.sakurai@gmail.com'>
                 scott.t.sakurai@gmail.com
               </a>
             </p>
-            <p className="owner"></p>
+            <p className='owner'></p>
           </div>
         </div>
       </div>
     </CSSTransition>,
-    document.getElementById("root")
+    document.getElementById('root')
   );
 };
 

@@ -8,7 +8,7 @@
 body {
   background-color: var(--page-background-color);
   text-align: center;
-  font-family: "League Spartan", sans-serif;
+  font-family: 'League Spartan', sans-serif;
   color: white;
 }
 
@@ -48,6 +48,11 @@ input:focus {
   background-color: var(--page-background-color);
 }
 
+.top-button:hover {
+  border: 2px solid var(--main-color);
+  background-color: var(--highlight-over);
+}
+
 .right-top-div {
   display: inline-block;
 }
@@ -58,7 +63,7 @@ input:focus {
 }
 
 .game-title {
-  font-family: "Monoton", cursive;
+  font-family: 'Monoton', cursive;
   color: var(--main-color);
   font-size: 45px;
   display: flex;
@@ -315,7 +320,7 @@ input {
 }
 
 .guess-list {
-  font-family: "Rokkitt", serif;
+  font-family: 'Rokkitt', serif;
   margin: 0px auto;
   width: 100%;
   background-color: white;

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
+import closeButton from '../../images/x-symbol.svg';
+// import closeButton from 'images/x-symbol.svg';
 import './Modal.css';
 
 const RulesScreen = (props) => {
@@ -28,7 +30,7 @@ const RulesScreen = (props) => {
           <div className='modal-header'>
             <h2 className='modal-title'>RULES</h2>
             <button onClick={props.onClose} className='button modal-button'>
-              x
+              <img src={closeButton} alt='close button' width={15} />
             </button>
           </div>
           <div className='modal-body'>
