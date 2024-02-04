@@ -34,14 +34,14 @@
   line-height: 20px;
   border: 2px solid;
   border-radius: 50%;
-  border: 2px solid #f0950f;
+  border: none;
 }
 
-.modal-button:hover {
+/* .modal-button:hover {
   border: 2px solid #f0950f;
   background-color: var(--highlight-over);
   color: #242424;
-}
+} */
 
 .modal.exit {
   opacity: 0;
