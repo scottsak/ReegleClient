@@ -1,65 +1,65 @@
-import React, { useState } from "react";
-import Axios from "axios";
+import React, { useState } from 'react';
+import Axios from 'axios';
 
 // importing jsx files
-import GuessBoard from "./GuessBoard";
-import movies from "../movie.js";
-import Autocomplete from "./Autocomplete";
-import Clock from "./Clock";
-import Ticket from "./Ticket";
-import Timer from "./Timer";
-import MaintenanceMode from "./MaintenanceMode.jsx";
+import GuessBoard from './GuessBoard';
+import movies from '../movie.js';
+import Autocomplete from './Autocomplete';
+import Clock from './Clock';
+import Ticket from './Ticket';
+import Timer from './Timer';
+import MaintenanceMode from './MaintenanceMode.jsx';
 
 function App() {
   // gets the date information for starting information
   const today = new Date();
   const todaysDate =
-    today.getMonth() + 1 + "-" + today.getDate() + "-" + today.getFullYear();
-  const lastDayPlayed = localStorage.getItem("day");
+    today.getMonth() + 1 + '-' + today.getDate() + '-' + today.getFullYear();
+  const lastDayPlayed = localStorage.getItem('day');
   const underMaintenance = false;
 
-  console.debug("scotttest underMaintenance", underMaintenance);
+  console.debug('scotttest underMaintenance', underMaintenance);
 
   // checks last day played
   if (lastDayPlayed !== todaysDate) {
-    localStorage.setItem("day", todaysDate);
-    localStorage.setItem("guesses", "[]");
-    localStorage.setItem("guess", 1);
-    localStorage.setItem("win", "waiting");
+    localStorage.setItem('day', todaysDate);
+    localStorage.setItem('guesses', '[]');
+    localStorage.setItem('guess', 1);
+    localStorage.setItem('win', 'waiting');
   }
 
   // gets info for stats
-  let startGamesPlayed = JSON.parse(localStorage.getItem("gamesPlayed"));
+  let startGamesPlayed = JSON.parse(localStorage.getItem('gamesPlayed'));
   const firstTime = !!startGamesPlayed ? false : true;
   if (startGamesPlayed === null) {
     startGamesPlayed = 0;
-    localStorage.setItem("gamesPlayed", 0);
+    localStorage.setItem('gamesPlayed', 0);
   }
   const [gamesPlayed, setGamesPlayed] = useState(parseInt(startGamesPlayed));
 
-  let startWin = localStorage.getItem("win");
+  let startWin = localStorage.getItem('win');
   if (startWin === null) {
-    startWin = "waiting";
-    localStorage.setItem("win", "waiting");
+    startWin = 'waiting';
+    localStorage.setItem('win', 'waiting');
   }
 
   const [win, setWin] = useState(startWin);
 
-  let startGuessAmount = JSON.parse(localStorage.getItem("guess"));
+  let startGuessAmount = JSON.parse(localStorage.getItem('guess'));
 
   if (!startGuessAmount) {
     startGuessAmount = 1;
-    localStorage.setItem("guess", 1);
+    localStorage.setItem('guess', 1);
   }
 
-  let startLosses = JSON.parse(localStorage.getItem("losses"));
+  let startLosses = JSON.parse(localStorage.getItem('losses'));
   if (!startLosses) {
-    localStorage.setItem("losses", 0);
+    localStorage.setItem('losses', 0);
   }
 
-  let startWins = JSON.parse(localStorage.getItem("wins"));
+  let startWins = JSON.parse(localStorage.getItem('wins'));
   if (!startWins) {
-    localStorage.setItem("wins", 0);
+    localStorage.setItem('wins', 0);
   }
 
   const [guessesAmount, setGuesses] = useState(startGuessAmount);
@@ -68,38 +68,38 @@ function App() {
 
   const [dailyMovieInfo, setDailyMovieInfo] = useState(movies[0]);
 
-  let startGuesses = JSON.parse(localStorage.getItem("guesses"));
+  let startGuesses = JSON.parse(localStorage.getItem('guesses'));
 
   if (!startGuesses) {
     startGuesses = [];
     console.log(startGuesses);
-    localStorage.setItem("guesses", JSON.stringify(startGuesses));
-    console.log(JSON.parse(localStorage.getItem("guesses")));
+    localStorage.setItem('guesses', JSON.stringify(startGuesses));
+    console.log(JSON.parse(localStorage.getItem('guesses')));
   }
   const [guessList, setGuessList] = useState(startGuesses);
 
   // gets movie to start the game
   function getInfoforMovie() {
-    Axios.get("https://reegle-server.herokuapp.com/get_movie_info", {
+    Axios.get('https://reegle-server.herokuapp.com/get_movie_info', {
       // Axios.get("http://localhost:3001/get_movie_info", {
       params: {
         todaysDate:
           today.getMonth() +
           1 +
-          "-" +
+          '-' +
           today.getDate() +
-          "-" +
+          '-' +
           today.getFullYear(),
       },
     }).then((res) => {
-      if (typeof res.data[0] !== "undefined") {
+      if (typeof res.data[0] !== 'undefined') {
         setDailyMovieInfo(res.data[0]);
       }
     });
   }
 
   return (
-    <div className="App">
+    <div className='App'>
       {underMaintenance && <MaintenanceMode />}
       {!underMaintenance && (
         <>
@@ -112,19 +112,23 @@ function App() {
             gamesPlayed={gamesPlayed}
             setGamesPlayed={setGamesPlayed}
           />
-          <GuessBoard guessList={guessList} gamesPlayed={gamesPlayed} firstTime={firstTime} />
+          <GuessBoard
+            guessList={guessList}
+            gamesPlayed={gamesPlayed}
+            firstTime={firstTime}
+          />
 
-          <div className="spacer"></div>
+          <div className='spacer'></div>
 
-          {win === "waiting" ? (
+          {win === 'waiting' ? (
             <Autocomplete
               suggestions={["Sorcerer's Apprentice"]}
               date={
                 today.getMonth() +
                 1 +
-                "-" +
+                '-' +
                 today.getDate() +
-                "-" +
+                '-' +
                 today.getFullYear()
               }
               guessesAmount={guessesAmount}
@@ -151,7 +155,7 @@ function App() {
             win={win}
           />
 
-          <div className="footer"></div>
+          <div className='footer'></div>
         </>
       )}
     </div>

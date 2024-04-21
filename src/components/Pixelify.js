@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Pixelify extends Component {
   canvas = null;
@@ -13,12 +13,12 @@ class Pixelify extends Component {
     pixelSize = parseInt(pixelSize, 10);
     // create img that will be later painted into the canvas
     let img = new Image();
-    img.crossOrigin = "anonymous";
-    img.src = src+ "?not-from-cache-please";
+    img.crossOrigin = 'anonymous';
+    img.src = src + '?not-from-cache-please';
     // once image is loaded..
     img.onload = () => {
       const canvas = this.canvas;
-      const ctx = canvas.getContext("2d");
+      const ctx = canvas.getContext('2d');
       img.width = width ? width : img.width;
       img.height = height ? height : img.height;
       canvas.width = img.width;
@@ -71,8 +71,8 @@ class Pixelify extends Component {
   render() {
     return (
       <canvas
-        className="pixel-movie-image"
-        ref={canvas => {
+        className='pixel-movie-image'
+        ref={(canvas) => {
           this.canvas = canvas;
         }}
       />
@@ -86,12 +86,12 @@ Pixelify.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   centered: PropTypes.bool,
-  fillTransparencyColor: PropTypes.string
+  fillTransparencyColor: PropTypes.string,
 };
 
 Pixelify.defaultProps = {
   centered: false,
-  fillTransparencyColor: "white"
+  fillTransparencyColor: 'white',
 };
 
 export default Pixelify;
