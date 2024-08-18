@@ -24,22 +24,12 @@ function GuessBoard(props) {
           <h1 className='game-title'>REEGLE</h1>
           <div className='top right'>
             <div className='right-top-div'>
-              <button
-                className='top-button rules-button'
-                onClick={() => setShowRules(true)}
-              >
+              <button className='top-button rules-button' onClick={() => setShowRules(true)}>
                 <img className='top-button-image' src={q}></img>
               </button>
-              <RulesScreen
-                title='My Modal'
-                onClose={() => setShowRules(false)}
-                show={showRules}
-              ></RulesScreen>
+              <RulesScreen title='My Modal' onClose={() => setShowRules(false)} show={showRules}></RulesScreen>
               <div className='btn-space'></div>
-              <button
-                className='top-button stats-button'
-                onClick={() => setShowStat(true)}
-              >
+              <button className='top-button stats-button' onClick={() => setShowStat(true)}>
                 <img className='top-button-image' src={stats}></img>
               </button>
               <StatScreen
@@ -49,40 +39,25 @@ function GuessBoard(props) {
                 gamesPlayed={props.gamesPlayed}
               ></StatScreen>
               <div className='btn-space'></div>
-              <button
-                className='top-button scott-button'
-                onClick={() => setShowScott(true)}
-              >
-                <img
-                  className='top-button-image scott-logo'
-                  src={scott}
-                  alt='scott website logo'
-                />
+              <button className='top-button scott-button' onClick={() => setShowScott(true)}>
+                <img className='top-button-image scott-logo' src={scott} alt='scott website logo' />
               </button>
-              <Scott
-                title='My Modal'
-                onClose={() => setShowScott(false)}
-                show={showScott}
-              ></Scott>
+              <Scott title='My Modal' onClose={() => setShowScott(false)} show={showScott}></Scott>
               <div className='btn-space'></div>
-              <button
-                className='top-button info-button'
-                onClick={() => setShowInfo(true)}
-              >
+              <button className='top-button info-button' onClick={() => setShowInfo(true)}>
                 <img className='top-button-image' src={info}></img>
               </button>
-              <InfoScreen
-                title='My Modal'
-                onClose={() => setShowInfo(false)}
-                show={showInfo}
-              ></InfoScreen>
+              <InfoScreen title='My Modal' onClose={() => setShowInfo(false)} show={showInfo}></InfoScreen>
             </div>
           </div>
         </div>
       </div>
       <div className='guess-board maintenanceMode'>
         <img src={require('../images/tooCheap.png')} alt='i am broke' />
-        <h1>Sorry I am too broke to host the database and server</h1>
+        <h1>
+          Sorry the way this was setup previously was too expensive. Currently working on transferring to lambdas to
+          reduce costs.
+        </h1>
       </div>
     </>
   );
