@@ -13,10 +13,9 @@ import MaintenanceMode from './MaintenanceMode.jsx';
 function App() {
   // gets the date information for starting information
   const today = new Date();
-  const todaysDate =
-    today.getMonth() + 1 + '-' + today.getDate() + '-' + today.getFullYear();
+  const todaysDate = today.getMonth() + 1 + '-' + today.getDate() + '-' + today.getFullYear();
   const lastDayPlayed = localStorage.getItem('day');
-  const underMaintenance = false;
+  const underMaintenance = true;
 
   console.debug('scotttest underMaintenance', underMaintenance);
 
@@ -83,13 +82,7 @@ function App() {
     Axios.get('https://reegle-server.herokuapp.com/get_movie_info', {
       // Axios.get("http://localhost:3001/get_movie_info", {
       params: {
-        todaysDate:
-          today.getMonth() +
-          1 +
-          '-' +
-          today.getDate() +
-          '-' +
-          today.getFullYear(),
+        todaysDate: today.getMonth() + 1 + '-' + today.getDate() + '-' + today.getFullYear(),
       },
     }).then((res) => {
       if (typeof res.data[0] !== 'undefined') {
@@ -112,25 +105,14 @@ function App() {
             gamesPlayed={gamesPlayed}
             setGamesPlayed={setGamesPlayed}
           />
-          <GuessBoard
-            guessList={guessList}
-            gamesPlayed={gamesPlayed}
-            firstTime={firstTime}
-          />
+          <GuessBoard guessList={guessList} gamesPlayed={gamesPlayed} firstTime={firstTime} />
 
           <div className='spacer'></div>
 
           {win === 'waiting' ? (
             <Autocomplete
               suggestions={["Sorcerer's Apprentice"]}
-              date={
-                today.getMonth() +
-                1 +
-                '-' +
-                today.getDate() +
-                '-' +
-                today.getFullYear()
-              }
+              date={today.getMonth() + 1 + '-' + today.getDate() + '-' + today.getFullYear()}
               guessesAmount={guessesAmount}
               setGuesses={setGuesses}
               setGuessList={setGuessList}
